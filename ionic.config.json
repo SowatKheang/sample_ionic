@@ -1,0 +1,7 @@
+{
+  "name": "sample-state-management",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
