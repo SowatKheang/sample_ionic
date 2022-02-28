@@ -1,0 +1,6 @@
+{
+	"appId": "io.ionic.starter",
+	"appName": "sample-state-management",
+	"webDir": "www",
+	"bundledWebRuntime": false
+}
