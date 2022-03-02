@@ -1,12 +1,7 @@
 
 <ion-tabs >
   <ion-tab-bar slot="bottom" *ngIf="!isDesktop">
-    <ion-tab-button 
-      *ngFor="let item of bottom_nav_bars; index as i"
-      [tab]="item?.route"
-      (click)="item?.click ? item?.click() : null"
-      id="tabButton-{{ i }}"
-    >
+    <ion-tab-button *ngFor="let item of bottom_nav_bars; index as i" [tab]="item?.route" (click)="item?.click ? item?.click() : null" id="tabButton-{{ i }}">
       <ion-icon [name]="item?.icon"></ion-icon>
       <ion-label>{{item?.name}}</ion-label>
     </ion-tab-button>

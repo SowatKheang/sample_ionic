@@ -1,12 +1,17 @@
 
 <ion-app>
   <ion-split-pane contentId="main">
+    <!-- Menu -->
     <ion-menu contentId="main" type="overlay" *ngIf="!isDesktop">
+      <!-- Header -->
       <ion-header>
         <ion-toolbar>
           <ion-title>Menu</ion-title>
         </ion-toolbar>
       </ion-header>
+      <!-- End Header -->
+
+      <!-- Content -->
       <ion-content>
         <ion-list>
           <ion-menu-toggle auto-hide="false" *ngFor="let item of menu_items; let i = index">
@@ -17,9 +22,10 @@
             </ion-item>
           </ion-menu-toggle>
         </ion-list>
-
       </ion-content>
+      <!-- End Content -->
     </ion-menu>
+    <!-- End Menu -->
     
     <ion-router-outlet id="main"></ion-router-outlet>
   </ion-split-pane>
