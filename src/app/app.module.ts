@@ -15,6 +15,7 @@ import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { SpaceXInfoState } from './ngxs/state';
 
 import { HttpInterceptorService } from './http/interceptor.service';
+import { SharedModule } from './modules/shared/shared.module';
 
 @NgModule({
   declarations: [AppComponent],
@@ -33,6 +34,7 @@ import { HttpInterceptorService } from './http/interceptor.service';
       disabled: environment.production == true,
     }),
     HttpClientModule,
+    SharedModule
   ],
   providers: [
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },

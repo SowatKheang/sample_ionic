@@ -83,6 +83,6 @@ export class HttpInterceptorService implements HttpInterceptor {
   }
 
   async hideLoading() {
-      await this.loadingController.dismiss();
+    await this.loadingController.dismiss();
   }
 }
