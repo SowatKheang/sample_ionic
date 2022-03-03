@@ -1,6 +1,8 @@
+
 import { Component, HostListener, ViewChild } from '@angular/core';
 import { MenuController, Platform } from '@ionic/angular';
 import { Store } from '@ngxs/store';
+import { HttpService } from '../http/http.service';
 import { GET_SPACEX_DATA } from '../ngxs/action';
 import { SpaceXInfo, SpaceXInfoState } from '../ngxs/state';
 @Component({
@@ -39,10 +41,21 @@ export class HomePage {
   isDesktop = false;
   title = 'Home';
 
-  constructor(private menuCtrl: MenuController, private platform: Platform) { }
+  users: any = [];
+
+  constructor(private menuCtrl: MenuController, private platform: Platform, private http: HttpService) { }
+
+  getUsers() {
+    this.http.get(this.http.userApi, null).subscribe((res)=> {
+      this.users = res['data'];
+      console.log(this.users);
+    });
+  }
 
   ngOnInit() {
     this.isDesktop = this.platform.is('desktop');
+
+    this.getUsers();
 
     this.categories = [
       { name: 'T Shirts', desc: 'Starting from $399', imgUrl: 'https://raw.githubusercontent.com/shantanum91/ionic-mobile-and-desktop-starter/master/src/assets/tshirts.jpg' },

@@ -23,30 +23,30 @@ export class HttpInterceptorService implements HttpInterceptor {
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
     const token = "my-token-string-from-server";
 
-    //Authentication by setting header with token value
-    // if (token) {
-    //   req = req.clone({ headers: req.headers.set('Authorization', 'Bearer ' + token) });
-    // }
-    // if (token) {
-    //   req = req.clone({
-    //     setHeaders: {
-    //       'Authorization': token
-    //     }
-    //   });
-    // }
+    // Authentication by setting header with token value
+    if (token) {
+      req = req.clone({ headers: req.headers.set('Authorization', 'Bearer ' + token) });
+    }
+    if (token) {
+      req = req.clone({
+        setHeaders: {
+          'Authorization': token
+        }
+      });
+    }
 
-    // if (!req.headers.has('Content-Type')) {
-    //   req = req.clone({
-    //     setHeaders: {
-    //       'content-type': 'application/json',
-    //       'Access-Control-Allow-Origin': '*'
-    //     }
-    //   });
-    // }
+    if (!req.headers.has('Content-Type')) {
+      req = req.clone({
+        setHeaders: {
+          'content-type': 'application/json',
+          'Access-Control-Allow-Origin': '*'
+        }
+      });
+    }
 
-    // req = req.clone({
-    //   headers: req.headers.set('Accept', 'application/json')
-    // });
+    req = req.clone({
+      headers: req.headers.set('Accept', 'application/json')
+    });
 
     this.showLoading();
 

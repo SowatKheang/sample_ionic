@@ -8,9 +8,11 @@ import { environment } from 'src/environments/environment';
 export class HttpService {
 
   // apiURL : string = environment.baseUrl;
-  apiUrl = 'https://api.spacexdata.com/v3';
+  // apiUrl = 'https://api.spacexdata.com/v3';
+  apiUrl = 'http://192.168.70.197:8080/api/';
 
   readonly spaceXInfoApi : string = "/info";
+  readonly userApi: string = 'users'
 
   constructor(private http: HttpClient) { }
 
