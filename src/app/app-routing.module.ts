@@ -13,11 +13,15 @@ const routes: Routes = [
   // },
   {
     path: '',
-    loadChildren: () => import('./tab/tab.module').then( m => m.TabPageModule)
+    loadChildren: () => import('./pages/tab/tab.module').then( m => m.TabPageModule)
   },
   {
     path: 'about',
-    loadChildren: () => import('./about/about.module').then( m => m.AboutPageModule)
+    loadChildren: () => import('./pages/about/about.module').then( m => m.AboutPageModule)
+  },
+  {
+    path: 'contact',
+    loadChildren: () => import('./pages/contact/contact.module').then( m => m.ContactPageModule)
   }
 ];
 

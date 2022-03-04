@@ -14,7 +14,7 @@ import { environment } from 'src/environments/environment';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { SpaceXInfoState } from './ngxs/state';
 
-import { HttpInterceptorService } from './http/interceptor.service';
+import { HttpInterceptorService } from './services/http/interceptor.service';
 import { SharedModule } from './modules/shared/shared.module';
 
 @NgModule({

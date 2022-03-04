@@ -6,7 +6,7 @@ import { HomePage } from './home.page';
 
 import { HomePageRoutingModule } from './home-routing.module';
 
-import { SharedModule } from '../modules/shared/shared.module';
+import { SharedModule } from '../../modules/shared/shared.module';
 
 @NgModule({
   imports: [

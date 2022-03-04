@@ -2,9 +2,9 @@
 import { Component, HostListener, ViewChild } from '@angular/core';
 import { MenuController, Platform } from '@ionic/angular';
 import { Store } from '@ngxs/store';
-import { HttpService } from '../http/http.service';
-import { GET_SPACEX_DATA } from '../ngxs/action';
-import { SpaceXInfo, SpaceXInfoState } from '../ngxs/state';
+import { HttpService } from '../../services/http/http.service';
+import { GET_SPACEX_DATA } from '../../ngxs/action';
+import { SpaceXInfo, SpaceXInfoState } from '../../ngxs/state';
 @Component({
   selector: 'app-home',
   templateUrl: 'home.page.html',

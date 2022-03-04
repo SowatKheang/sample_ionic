@@ -23,6 +23,9 @@
 
 
 <ion-content>
+  <ul *ngFor="let user of users">
+    <li> {{ user?.username }} </li>
+  </ul>
   <ion-item>
     <h3>Categories</h3>
   </ion-item>
