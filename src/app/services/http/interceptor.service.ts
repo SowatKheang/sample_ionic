@@ -60,30 +60,39 @@ export class HttpInterceptorService implements HttpInterceptor {
       catchError((error: HttpErrorResponse) => {
         console.error(error);
         return throwError(error);
-      })
+      }),
     );
   }
 
   async showLoading() {
-    return await this.loadingController.create({
-      message: 'Processing Server Request'
+    // const loader = await this.loadingController.create({
+    //   message: 'Processing Server Request',
+      // duration: 500
+    // });
+    // return loader.present();
+    // await loader.onDidDismiss();
+    // console.log('Loading dismissed!');
+
+    this.loading = this.loadingController.create({
+      message: 'Processing Server Request',
+      duration: 500
     }).then((res) => {
       res.present();
 
       res.onDidDismiss().then((dis) => {
         console.log('Loading dismissed!');
       });
-      this.loading = res;
-      return this.loading;
-    }).finally(() => {
-      setTimeout(()=> {
-        this.hideLoading();
-      }, 500);
+    });
+    this.hideLoading();
+  }
+
+  hideLoading() {
+    this.loadingController.dismiss().then((res) => {
+      console.log('Loading dismissed!', res);
+    }).catch((error) => {
+      console.log('error', error);
     });
   }
 
-  async hideLoading() {
-    await this.loadingController.dismiss();
-  }
 }
 

@@ -45,8 +45,8 @@ export class HomePage {
 
   constructor(private menuCtrl: MenuController, private platform: Platform, private http: HttpService) { }
 
-  getUsers() {
-    this.http.get(this.http.userApi, null).subscribe((res)=> {
+  async getUsers() {
+    await this.http.get(this.http.userApi, null).subscribe((res)=> {
       this.users = res['data'];
       console.log(this.users);
     });
@@ -73,6 +73,15 @@ export class HomePage {
 
   setTitle(title) {
     this.title = title
+  }
+
+  doRefresh(event) {
+    this.users = [];
+    setTimeout(() => {
+      this.getUsers().then(()=> {
+        event.target.complete();
+      });
+    }, 1000);
   }
 
 }
