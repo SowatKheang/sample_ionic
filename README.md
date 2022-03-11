@@ -40,7 +40,7 @@ TranslateModule.forChild()
 ```
 
 ## Storage
-### 1. Installaion
+### 1. Installation
 ```
 npm install @ionic/storage-angular
 ```
@@ -57,7 +57,7 @@ import { IonicStorageModule } from '@ionic/storage-angular';
 })
 export class AppModule { }
 ```
-#### 2. Inject Storage into a component.
+#### 2.2. Inject Storage into a component.
 - Note: this approach is meant for usage in a single component
 - Example app.component.ts 
 ```ts
@@ -81,7 +81,7 @@ export class AppComponent {
 }
 ```
 
-#### 2.2. If create StorageService instead of using 2.1
+#### 2.3. If create StorageService instead of using 2.2
 ```ts
 import { Injectable } from '@angular/core';
 
@@ -105,7 +105,7 @@ export class StorageService {
   // Create and expose methods that users of this service can
   // call, for example:
   public set(key: string, value: any) {
-    this.storage?.set(key, value);
+    this.storage.set(key, value);
   }
 
   public get(key: string) {
@@ -117,7 +117,7 @@ export class StorageService {
 ```
 Then, inject the StorageService into your pages and other components that need to interface with the Storage engine.
 
-#### 2.3. Set, Get, Remove with a key
+#### 2.4. Set, Get, Remove with a key
 - set
 ```ts
 await storage.set('name', 'Mr. Ionitron');
