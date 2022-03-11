@@ -23,3 +23,18 @@ ionic cap run ios -l --external
 ```
 In file tsconfing.json, under compilerOptions change "target": "2015" to "target": "es5"
 ```
+
+## I18N Angular
+### 1. Installtion
+```
+npm install @ngx-translate/core @ngx-translate/http-loader --save
+```
+### 2. Import in AppModule
+```
+TranslateModule.forRoot()
+```
+
+### 3. Import in Pages
+```
+TranslateModule.forChild()
+```

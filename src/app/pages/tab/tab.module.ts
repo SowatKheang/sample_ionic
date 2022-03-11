@@ -9,6 +9,7 @@ import { TabPageRoutingModule } from './tab-routing.module';
 import { TabPage } from './tab.page';
 import { HomePageModule } from '../home/home.module';
 import { AboutPageModule } from '../about/about.module';
+import { TranslateModule } from '@ngx-translate/core';
 
 @NgModule({
   imports: [
@@ -17,7 +18,8 @@ import { AboutPageModule } from '../about/about.module';
     IonicModule,
     TabPageRoutingModule,
     HomePageModule,
-    AboutPageModule
+    AboutPageModule,
+    TranslateModule.forChild()
   ],
   declarations: [TabPage]
 })

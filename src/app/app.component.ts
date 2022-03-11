@@ -1,6 +1,7 @@
 import { Component, HostListener, OnInit } from '@angular/core';
 import { StatusBar } from '@capacitor/status-bar';
 import { MenuController, Platform } from '@ionic/angular';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-root',
@@ -25,22 +26,22 @@ export class AppComponent implements OnInit {
 
   menu_items = [
     {
-      title: 'Home',
+      title: 'home',
       icon: 'home',
       path: '/'
     },
     {
-      title: 'Products',
+      title: 'product',
       icon: 'list',
       path: '/products'
     },
     {
-      title: 'About',
+      title: 'about',
       icon: 'information-circle',
       path: '/about'
     },
     { 
-      title : 'Logout',  
+      title : 'logout',  
       url   : '/logout',  
       icon  : 'exit'  
     }
@@ -48,13 +49,14 @@ export class AppComponent implements OnInit {
  
   title = 'Home';
  
-  constructor(private menuCtrl: MenuController, private platform: Platform) {
+  constructor(private menuCtrl: MenuController, private platform: Platform, private translate: TranslateService ) {
     this.platform.ready().then(()=> {
       StatusBar.setBackgroundColor({
         color: '#E1E7E4'
       });
     });
     this.isDesktop = this.platform.is('desktop');
+    this.initializeApp();
   }
  
   ngOnInit() {
@@ -84,5 +86,9 @@ export class AppComponent implements OnInit {
   // setTitle(title) {
   //   this.title = title
   // }
+
+  initializeApp() {
+    this.translate.setDefaultLang('km');
+  }
   
 }

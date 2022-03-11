@@ -4,7 +4,7 @@
     <ion-buttons slot="start">
       <ion-menu-button></ion-menu-button>
     </ion-buttons>
-    <ion-title>{{ title }}</ion-title>
+    <ion-title>{{ title | translate }}</ion-title>
     <ion-buttons slot="end">
       <ion-button>
         <ion-icon slot="icon-only" name="cart"></ion-icon>
@@ -21,12 +21,12 @@
   </ion-col>
   <ion-col size="8" class="ion-text-left">
     <ion-button fill="clear" color="dark" [routerLink]="[home]" routerDirection="root" [routerLinkActiveOptions]="{exact: true}">
-      Home
+      {{ 'home' | translate }}
     </ion-button>
     <!-- Button with dropdown -->
     <ion-button #productbtn (mouseenter)="dropdown=true" (mouseleave)="hideDropdown($event)" fill="clear" color="dark"
       routerLink="/products" routerDirection="root">
-      Products
+      {{ 'product' | translate }}
       <ion-icon slot="end" [name]="dropdown ? 'chevron-down' : 'chevron-up'"></ion-icon>
     </ion-button>
     <div *ngIf="dropdown" class="dropdown" (mouseleave)="dropdown = false" #dropdownbox>
@@ -43,10 +43,10 @@
       </ion-item>
     </div>
     <ion-button fill="clear" color="dark" [routerLink]="[about]" routerDirection="root">
-      About
+      {{ 'about' | translate }}
     </ion-button>
     <ion-button fill="clear" color="dark" [routerLink]="[contact]" routerDirection="root">
-      Contact
+      {{ 'contact' | translate }}
     </ion-button>
   </ion-col>
   <ion-col size="2" class="ion-text-right">
@@ -55,4 +55,5 @@
     </ion-button>
   </ion-col>
 </ion-row>
+
 <!-- End Web Header -->

@@ -39,11 +39,13 @@ export class HomePage {
   categories = [];
   clothes = [];
   isDesktop = false;
-  title = 'Home';
+  title = 'home';
 
   users: any = [];
 
-  constructor(private menuCtrl: MenuController, private platform: Platform, private http: HttpService) { }
+  constructor(private menuCtrl: MenuController, private platform: Platform, private http: HttpService) {
+
+  }
 
   async getUsers() {
     await this.http.get(this.http.userApi, null).subscribe((res)=> {

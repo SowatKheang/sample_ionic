@@ -7,6 +7,9 @@ import { HomePage } from './home.page';
 import { HomePageRoutingModule } from './home-routing.module';
 
 import { SharedModule } from '../../modules/shared/shared.module';
+import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
+import { createTranslateLoader } from 'src/app/app.module';
+import { HttpClient } from '@angular/common/http';
 
 @NgModule({
   imports: [
@@ -15,6 +18,7 @@ import { SharedModule } from '../../modules/shared/shared.module';
     IonicModule,
     HomePageRoutingModule,
     SharedModule,
+    TranslateModule.forChild()
   ],
   declarations: [HomePage]
 })

@@ -1,5 +1,6 @@
 
 <ion-app>
+  
   <ion-split-pane contentId="main">
     <!-- Menu -->
     <ion-menu contentId="main" type="overlay" *ngIf="!isDesktop">
@@ -18,7 +19,7 @@
             <ion-item (click)="selectedIndex = i" routerDirection="root" [routerLink]="[item.path]" lines="none"
               detail="false" [class.selected]="selectedIndex == i">
               <ion-icon slot="start" [ios]="item.icon + '-outline'" [md]="item.icon + '-sharp'"></ion-icon>
-              <ion-label>{{ item.title }}</ion-label>
+              <ion-label>{{ item.title | translate }}</ion-label>
             </ion-item>
           </ion-menu-toggle>
         </ion-list>

@@ -11,11 +11,13 @@ import { NgxsModule } from '@ngxs/store';
 import { NgxsStoragePluginModule } from '@ngxs/storage-plugin';
 import { NgxsLoggerPluginModule } from '@ngxs/logger-plugin';
 import { environment } from 'src/environments/environment';
-import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule, HttpClient } from '@angular/common/http';
 import { SpaceXInfoState } from './ngxs/state';
 
 import { HttpInterceptorService } from './services/http/interceptor.service';
 import { SharedModule } from './modules/shared/shared.module';
+import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 
 @NgModule({
   declarations: [AppComponent],
@@ -34,7 +36,16 @@ import { SharedModule } from './modules/shared/shared.module';
       disabled: environment.production == true,
     }),
     HttpClientModule,
-    SharedModule
+    SharedModule,
+    TranslateModule.forRoot(
+      {
+        loader: {
+          provide: TranslateLoader,
+          useFactory: (createTranslateLoader),
+          deps: [HttpClient]
+        }
+      }
+    )
   ],
   providers: [
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
@@ -43,3 +54,8 @@ import { SharedModule } from './modules/shared/shared.module';
   bootstrap: [AppComponent],
 })
 export class AppModule {}
+
+
+export function createTranslateLoader(http: HttpClient) {
+  return new TranslateHttpLoader(http, './assets/i18n/', '.json');
+}

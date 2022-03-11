@@ -1,0 +1,10 @@
+{
+    "home": "Home",
+    "product": "Product",
+    "about": "About",
+    "contact": "Contact",
+    "map": "Location",
+    "notification": "Notification",
+
+    "logout": "Logout"
+}

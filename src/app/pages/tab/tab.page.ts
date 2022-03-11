@@ -10,18 +10,17 @@ export class TabPage implements OnInit {
 
   isDesktop = false;
 
-  constructor(private platform: Platform) { 
-  }
+  constructor(private platform: Platform) { }
 
   ngOnInit() {
     this.isDesktop = this.platform.is('desktop');
   }
 
   bottom_nav_bars = [
-    { name: 'Home', route: 'home', icon: 'home' },
-    { name: 'Map', route: 'map', icon: 'map' },
-    { name: 'About', route: 'about', icon: 'information-circle' },
-    { name: 'Notification', route: 'notification', icon: 'notifications' },
+    { name: 'home', route: 'home', icon: 'home' },
+    { name: 'map', route: 'map', icon: 'map' },
+    { name: 'about', route: 'about', icon: 'information-circle' },
+    { name: 'notification', route: 'notification', icon: 'notifications' },
   ];
 
 }
