@@ -27,13 +27,13 @@ export class HttpInterceptorService implements HttpInterceptor {
     if (token) {
       req = req.clone({ headers: req.headers.set('Authorization', 'Bearer ' + token) });
     }
-    if (token) {
-      req = req.clone({
-        setHeaders: {
-          'Authorization': token
-        }
-      });
-    }
+    // if (token) {
+    //   req = req.clone({
+    //     setHeaders: {
+    //       'Authorization': token
+    //     }
+    //   });
+    // }
 
     if (!req.headers.has('Content-Type')) {
       req = req.clone({
@@ -86,3 +86,4 @@ export class HttpInterceptorService implements HttpInterceptor {
     await this.loadingController.dismiss();
   }
 }
+
