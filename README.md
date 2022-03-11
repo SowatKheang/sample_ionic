@@ -18,3 +18,8 @@ ionic cap run android -l --external
 ```
 ionic cap run ios -l --external
 ```
+
+## Fix iOS white screen
+```
+In file tsconfing.json, under compilerOptions change "target": "2015" to "target": "es5"
+```
