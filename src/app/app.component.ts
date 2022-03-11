@@ -1,7 +1,8 @@
 import { Component, HostListener, OnInit } from '@angular/core';
 import { StatusBar } from '@capacitor/status-bar';
 import { MenuController, Platform } from '@ionic/angular';
-import { TranslateService } from '@ngx-translate/core';
+import { AppConst } from './consts/app-const';
+import { TranslateConfigService } from './services/translate/translate-config.service';
 
 @Component({
   selector: 'app-root',
@@ -49,7 +50,7 @@ export class AppComponent implements OnInit {
  
   title = 'Home';
  
-  constructor(private menuCtrl: MenuController, private platform: Platform, private translate: TranslateService ) {
+  constructor(private menuCtrl: MenuController, private platform: Platform, private translateConfigService: TranslateConfigService ) {
     this.platform.ready().then(()=> {
       StatusBar.setBackgroundColor({
         color: '#E1E7E4'
@@ -88,7 +89,8 @@ export class AppComponent implements OnInit {
   // }
 
   initializeApp() {
-    this.translate.setDefaultLang('km');
+    this.translateConfigService.setLanguage(AppConst.APP_KHMER_LANGUAGE_KEY);
   }
   
+
 }

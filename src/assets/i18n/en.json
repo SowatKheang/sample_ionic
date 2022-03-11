@@ -6,5 +6,8 @@
     "map": "Location",
     "notification": "Notification",
 
+    "km": "Khmer",
+    "en": "English",
+
     "logout": "Logout"
 }
