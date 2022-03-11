@@ -2,6 +2,7 @@ import { Component, HostListener, OnInit } from '@angular/core';
 import { StatusBar } from '@capacitor/status-bar';
 import { MenuController, Platform } from '@ionic/angular';
 import { AppConst } from './consts/app-const';
+import { StorageService } from './services/storages/storage-service.service';
 import { TranslateConfigService } from './services/translate/translate-config.service';
 
 @Component({
@@ -47,10 +48,15 @@ export class AppComponent implements OnInit {
       icon  : 'exit'  
     }
   ];
- 
+
   title = 'Home';
- 
-  constructor(private menuCtrl: MenuController, private platform: Platform, private translateConfigService: TranslateConfigService ) {
+
+  constructor(
+    private menuCtrl: MenuController, 
+    private platform: Platform, 
+    private translateConfigService: TranslateConfigService,
+    private storageService: StorageService
+  ) {
     this.platform.ready().then(()=> {
       StatusBar.setBackgroundColor({
         color: '#E1E7E4'
@@ -59,7 +65,7 @@ export class AppComponent implements OnInit {
     this.isDesktop = this.platform.is('desktop');
     this.initializeApp();
   }
- 
+
   ngOnInit() {
     // const width = this.platform.width();
     // this.toggleMenu(width);
@@ -88,9 +94,13 @@ export class AppComponent implements OnInit {
   //   this.title = title
   // }
 
-  initializeApp() {
-    this.translateConfigService.setLanguage(AppConst.APP_KHMER_LANGUAGE_KEY);
+  async initializeApp() {
+    let lang = await this.storageService.get(AppConst.APP_LANGUAGE_KEY);
+    if (lang === null) {
+      lang = AppConst.APP_KHMER_LANGUAGE_KEY;
+    }
+    await this.storageService.set(AppConst.APP_LANGUAGE_KEY, lang);
+    this.translateConfigService.setLanguage(lang);
   }
-  
 
 }

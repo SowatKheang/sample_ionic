@@ -34,7 +34,107 @@ npm install @ngx-translate/core @ngx-translate/http-loader --save
 TranslateModule.forRoot()
 ```
 
-### 3. Import in Pages
+### 3. Import in Pages' module
 ```
 TranslateModule.forChild()
+```
+
+## Storage
+### 1. Installaion
+```
+npm install @ionic/storage-angular
+```
+
+### 2. Usage
+####  2.1. Import IonicStorageModule in file app.module.ts
+```ts
+import { IonicStorageModule } from '@ionic/storage-angular';
+
+@NgModule({
+  imports: [
+    IonicStorageModule.forRoot()
+  ]
+})
+export class AppModule { }
+```
+#### 2. Inject Storage into a component.
+- Note: this approach is meant for usage in a single component
+- Example app.component.ts 
+```ts
+import { Component } from '@angular/core';
+import { Storage } from '@ionic/storage-angular';
+
+@Component({
+  selector: 'app-root',
+  templateUrl: 'app.component.html'
+})
+export class AppComponent {
+
+  constructor(private storage: Storage) {
+  }
+
+  async ngOnInit() {
+    // If using a custom driver:
+    // await this.storage.defineDriver(MyCustomDriver)
+    await this.storage.create();
+  }
+}
+```
+
+#### 2.2. If create StorageService instead of using 2.1
+```ts
+import { Injectable } from '@angular/core';
+
+import { Storage } from '@ionic/storage-angular';
+
+@Injectable({
+  providedIn: 'root'
+})
+export class StorageService {
+
+  constructor(private storage: Storage) {
+    this.init();
+  }
+
+  async init() {
+    // If using, define drivers here: await this.storage.defineDriver(/*...*/);
+    await this.storage.create();
+    console.log(this.storage);
+  }
+
+  // Create and expose methods that users of this service can
+  // call, for example:
+  public set(key: string, value: any) {
+    this.storage?.set(key, value);
+  }
+
+  public get(key: string) {
+    return this.storage.get(key).then((val)=> {
+      return val;
+    });
+  }
+}
+```
+Then, inject the StorageService into your pages and other components that need to interface with the Storage engine.
+
+#### 2.3. Set, Get, Remove with a key
+- set
+```ts
+await storage.set('name', 'Mr. Ionitron');
+```
+- get
+```ts
+const name = await storage.get('name');
+```
+- remove an item
+```ts
+await storage.remove(key);
+```
+- clear all items
+```ts
+await storage.clear();
+```
+- get all keys
+```ts
+await storage.keys()
 ```

@@ -1,6 +1,7 @@
 import { Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import { AppConst } from 'src/app/consts/app-const';
+import { StorageService } from 'src/app/services/storages/storage-service.service';
 import { TranslateConfigService } from 'src/app/services/translate/translate-config.service';
 
 @Component({
@@ -17,12 +18,19 @@ export class HeaderComponent implements OnInit {
 
   @ViewChild('productbtn', { read: ElementRef })productbtn: ElementRef;
 
-  constructor(private translateConfigService: TranslateConfigService) { 
-    this.selectedLanguage = this.translateConfigService.getDefaultLanguage();
-    console.log(this.selectedLanguage);
+  constructor(
+    private translateConfigService: TranslateConfigService,
+    private storageService: StorageService
+  ) { 
+
   }
 
-  ngOnInit() {}
+  async ngOnInit() {
+    this.selectedLanguage = await this.translateConfigService.getDefaultLanguage();
+    if (this.selectedLanguage === AppConst.APP_ENGLISH_LANGUAGE_KEY) {
+      this.isEn = true;
+    }
+  }
 
   hideDropdown(event) {
     const xTouch = event.clientX;
@@ -41,6 +49,7 @@ export class HeaderComponent implements OnInit {
   useLanguage() {
     this.isEn = !this.isEn;
     this.translateConfigService.setLanguage(this.isEn ? AppConst.APP_ENGLISH_LANGUAGE_KEY : AppConst.APP_KHMER_LANGUAGE_KEY);
+    this.storageService.set(AppConst.APP_LANGUAGE_KEY, this.isEn ? AppConst.APP_ENGLISH_LANGUAGE_KEY : AppConst.APP_KHMER_LANGUAGE_KEY);
   } 
 
 }

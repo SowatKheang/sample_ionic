@@ -18,6 +18,7 @@ import { HttpInterceptorService } from './services/http/interceptor.service';
 import { SharedModule } from './modules/shared/shared.module';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { IonicStorageModule } from '@ionic/storage-angular';
 
 @NgModule({
   declarations: [AppComponent],
@@ -45,7 +46,8 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
           deps: [HttpClient]
         }
       }
-    )
+    ),
+    IonicStorageModule.forRoot()
   ],
   providers: [
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
