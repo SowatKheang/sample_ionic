@@ -20,7 +20,7 @@
     <img src="https://ionicacademy.com/wp-content/uploads/2020/02/ionic-Logo.svg" width="50px">
   </ion-col>
   <ion-col size="8" class="ion-text-left">
-    <ion-button fill="clear" color="dark" [routerLink]="[home]" routerDirection="root" [routerLinkActiveOptions]="{exact: true}">
+    <ion-button fill="clear" color="dark" [routerLink]="['/']" routerDirection="root">
       {{ 'home' | translate }}
     </ion-button>
     <!-- Button with dropdown -->
@@ -30,22 +30,22 @@
       <ion-icon slot="end" [name]="dropdown ? 'chevron-down' : 'chevron-up'"></ion-icon>
     </ion-button>
     <div *ngIf="dropdown" class="dropdown" (mouseleave)="dropdown = false" #dropdownbox>
-      <ion-item (click)="dropdown = false" [routerLink]="[products]" [queryParams]="{ category: 'popular'}" lines="none" routerDirection="root" >
+      <ion-item (click)="dropdown = false" [routerLink]="['/products']" [queryParams]="{ category: 'popular'}" lines="none" routerDirection="root" >
         Trending Clothes
       </ion-item>
-      <ion-item (click)="dropdown = false" button [routerLink]="[products]" [queryParams]="{ category: 'cloth'}"
+      <ion-item (click)="dropdown = false" button [routerLink]="['/products']" [queryParams]="{ category: 'cloth'}"
         lines="none" routerDirection="root" >
         Cloth
       </ion-item>
-      <ion-item (click)="dropdown = false" button [routerLink]="[products]" [queryParams]="{ category: 'gadgets'}"
+      <ion-item (click)="dropdown = false" button [routerLink]="['/products']" [queryParams]="{ category: 'gadgets'}"
         lines="none" routerDirection="root">
         Gadgets
       </ion-item>
     </div>
-    <ion-button fill="clear" color="dark" [routerLink]="[about]" routerDirection="root">
+    <ion-button fill="clear" color="dark" [routerLink]="['/about']" routerDirection="root">
       {{ 'about' | translate }}
     </ion-button>
-    <ion-button fill="clear" color="dark" [routerLink]="[contact]" routerDirection="root">
+    <ion-button fill="clear" color="dark" [routerLink]="['/contact']" routerDirection="root">
       {{ 'contact' | translate }}
     </ion-button>
   </ion-col>

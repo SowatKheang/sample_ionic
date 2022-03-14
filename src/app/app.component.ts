@@ -57,12 +57,14 @@ export class AppComponent implements OnInit {
     private translateConfigService: TranslateConfigService,
     private storageService: StorageService
   ) {
-    this.platform.ready().then(()=> {
-      StatusBar.setBackgroundColor({
-        color: '#E1E7E4'
-      });
-    });
     this.isDesktop = this.platform.is('desktop');
+    if (!this.isDesktop) {
+      this.platform.ready().then(()=> {
+        StatusBar.setBackgroundColor({
+          color: '#E1E7E4'
+        });
+      });
+    }
     this.initializeApp();
   }
 
