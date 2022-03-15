@@ -10,6 +10,7 @@ import { TabPage } from './tab.page';
 import { HomePageModule } from '../home/home.module';
 import { AboutPageModule } from '../about/about.module';
 import { TranslateModule } from '@ngx-translate/core';
+import { ContactPageModule } from '../contact/contact.module';
 
 @NgModule({
   imports: [
@@ -19,6 +20,7 @@ import { TranslateModule } from '@ngx-translate/core';
     TabPageRoutingModule,
     HomePageModule,
     AboutPageModule,
+    ContactPageModule,
     TranslateModule.forChild()
   ],
   declarations: [TabPage]

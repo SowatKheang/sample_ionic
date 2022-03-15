@@ -1,9 +1,39 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>contact</ion-title>
-  </ion-toolbar>
-</ion-header>
+
+<app-header [title]="title"></app-header>
+<br *ngIf="isDesktop">
 
 <ion-content>
+  <ion-grid>
+    <ion-row>
+      <!-- Form -->
+      <ion-col size-xl="6" size-md="6" size-sm="6" size-xs="12">
+        <div class="form">
+          <h4>Contact Us</h4>
+          <div class="form-item">
+            <ion-item>
+              <ion-input placeholder="Username"></ion-input>
+            </ion-item>
+            <ion-item>
+              <ion-input type="email" placeholder="Email"></ion-input>
+            </ion-item>
+            <ion-item>
+              <ion-textarea rows="6" placeholder="Enter more information here..."></ion-textarea>
+            </ion-item>
+            <ion-button id="send" (click)="buttonClicked()">
+              <ion-icon name="send-sharp"></ion-icon>
+            </ion-button>
+          </div>
+        </div>
+      </ion-col>
+      <!-- End Form -->
 
+      <!-- Img -->
+      <ion-col size-xl="6" size-md="6" size-sm="6" size-xs="12">
+        <div>
+          Img
+        </div>
+      </ion-col>
+      <!-- End Img -->
+    </ion-row>
+  </ion-grid>
 </ion-content>

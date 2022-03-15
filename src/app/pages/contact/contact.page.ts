@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Platform } from '@ionic/angular';
 
 @Component({
   selector: 'app-contact',
@@ -7,9 +8,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ContactPage implements OnInit {
 
-  constructor() { }
+  isDesktop = false;
+  title = 'contact';
+
+  constructor(private platform: Platform) { 
+    this.isDesktop = this.platform.is('desktop');
+  }
 
   ngOnInit() {
+    
+  }
+
+  setTitle(title) {
+    this.title = title
   }
 
 }

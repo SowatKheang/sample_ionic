@@ -1,0 +1,116 @@
+.form {
+    font-size: 24px;
+    // margin: 25px;
+    // outline: dashed 1px red;
+}
+
+.form h4 {
+    text-align: center;
+}
+
+.form-item {
+    /* Center horizontally*/
+    margin: 0 auto;
+    text-align: start;
+}
+
+ion-item {
+    border-radius: 5px !important;
+    font-size: 0.9em;
+    border: 1px solid rgb(102, 101, 101);
+    box-shadow: none !important;
+    margin: 24px 32px 24px 32px;
+    font-size: 16px;
+}
+
+ion-button {
+    width: 100%;
+    border-radius: 100% !important;
+    padding: 0px 80px 0px 80px;
+}
+
+@media only screen and (min-width: 960px) {
+    /* styles for browsers larger than 960px; */
+    ion-item {
+        border-radius: 5px !important;
+        font-size: 0.9em;
+        border: 1px solid rgb(102, 101, 101);
+        box-shadow: none !important;
+        margin: 24px 80px 24px 80px;
+        font-size: 16px;
+    }
+
+    ion-button {
+        width: 100%;
+        border-radius: 50% !important;
+        padding: 0px 80px 0px 80px;
+    }
+    
+}
+@media only screen and (min-width: 1440px) {
+    /* styles for browsers larger than 1440px; */
+    ion-item {
+        border-radius: 5px !important;
+        font-size: 0.9em;
+        border: 1px solid rgb(102, 101, 101);
+        box-shadow: none !important;
+        margin: 24px 80px 24px 80px;
+        font-size: 16px;
+    }
+    ion-button {
+        width: 100%;
+        border-radius: 50% !important;
+        padding: 0px 80px 0px 80px;
+    }
+}
+@media only screen and (min-width: 2000px) {
+    /* for sumo sized (mac) screens */
+    ion-item {
+        border-radius: 5px !important;
+        font-size: 0.9em;
+        border: 1px solid rgb(102, 101, 101);
+        box-shadow: none !important;
+        margin: 24px 100px 24px 100px;
+        font-size: 16px;
+    }
+    ion-button {
+        width: 100%;
+        border-radius: 50% !important;
+        padding: 0px 80px 0px 80px;
+    }
+}
+@media only screen and (max-device-width: 480px) {
+   /* styles for mobile browsers smaller than 480px; (iPhone) */
+    ion-item {
+        border-radius: 5px !important;
+        font-size: 0.9em;
+        border: 1px solid rgb(102, 101, 101);
+        box-shadow: none !important;
+        margin: 16px 16px 16px 16px;
+        font-size: 16px;
+    }
+    ion-button {
+        width: 100%;
+        border-radius: 50% !important;
+        padding: 0px 16px 0px 16px;
+    }
+}
+@media only screen and (device-width: 768px) {
+   /* default iPad screens */
+    ion-item {
+        border-radius: 5px !important;
+        font-size: 0.9em;
+        border: 1px solid rgb(102, 101, 101);
+        box-shadow: none !important;
+        margin: 24px 60px 24px 60px;
+        font-size: 16px;
+    }
+}
+/* different techniques for iPad screening */
+@media only screen and (min-device-width: 481px) and (max-device-width: 1024px) and (orientation:portrait) {
+  /* For portrait layouts only */
+}
+
+@media only screen and (min-device-width: 481px) and (max-device-width: 1024px) and (orientation:landscape) {
+  /* For landscape layouts only */
+}

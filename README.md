@@ -4,6 +4,10 @@
 ```
 ionic g service folder_name/file_name
 ```
+### Page
+```
+ionic g page folder_name/file_name
+```
 ### Component
 ```
 ionic g component folder_name/file_name

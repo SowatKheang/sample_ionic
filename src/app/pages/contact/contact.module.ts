@@ -7,13 +7,17 @@ import { IonicModule } from '@ionic/angular';
 import { ContactPageRoutingModule } from './contact-routing.module';
 
 import { ContactPage } from './contact.page';
+import { SharedModule } from 'src/app/modules/shared/shared.module';
+import { TranslateModule } from '@ngx-translate/core';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    ContactPageRoutingModule
+    ContactPageRoutingModule,
+    SharedModule,
+    TranslateModule.forChild()
   ],
   declarations: [ContactPage]
 })

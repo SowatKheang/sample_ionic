@@ -42,6 +42,11 @@ export class AppComponent implements OnInit {
       icon: 'information-circle',
       path: '/about'
     },
+    {
+      title: 'contact',
+      icon: 'call',
+      path: '/contact'
+    },
     { 
       title : 'logout',  
       url   : '/logout',  
