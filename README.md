@@ -1,4 +1,6 @@
-
+## Requirement
+- node v17.5.0
+- npm 8.4.1
 ## Generate Command
 ### Service
 ```
