@@ -1,4 +1,5 @@
 import { Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
+import { Platform } from '@ionic/angular';
 import { TranslateService } from '@ngx-translate/core';
 import { AppConst } from 'src/app/consts/app-const';
 import { StorageService } from 'src/app/services/storages/storage-service.service';
@@ -15,14 +16,16 @@ export class HeaderComponent implements OnInit {
   dropdown = false;
   isEn = false;
   selectedLanguage: string;
+  isDesktop = false;
 
   @ViewChild('productbtn', { read: ElementRef })productbtn: ElementRef;
 
   constructor(
+    private platform: Platform,
     private translateConfigService: TranslateConfigService,
     private storageService: StorageService
   ) { 
-
+    this.isDesktop = this.platform.is('desktop');
   }
 
   async ngOnInit() {
