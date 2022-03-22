@@ -1,19 +1,20 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { Platform } from '@ionic/angular';
+import { AbstractPage } from '../base/abstract.page';
 
 @Component({
   selector: 'app-tab',
   templateUrl: './tab.page.html',
   styleUrls: ['./tab.page.scss'],
 })
-export class TabPage implements OnInit {
+export class TabPage extends AbstractPage {
+  
+  constructor(private _platform: Platform) {
+    super(_platform);  
+  }
+  
+  onInit(): void {
 
-  isDesktop = false;
-
-  constructor(private platform: Platform) { }
-
-  ngOnInit() {
-    this.isDesktop = this.platform.is('desktop');
   }
 
   bottom_nav_bars = [

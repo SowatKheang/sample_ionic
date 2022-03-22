@@ -1,26 +1,20 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { Platform } from '@ionic/angular';
+import { AbstractPage } from '../base/abstract.page';
 
 @Component({
   selector: 'app-contact',
   templateUrl: './contact.page.html',
   styleUrls: ['./contact.page.scss'],
 })
-export class ContactPage implements OnInit {
-
-  isDesktop = false;
-  title = 'contact';
-
-  constructor(private platform: Platform) { 
-    this.isDesktop = this.platform.is('desktop');
+export class ContactPage extends AbstractPage {
+  
+  constructor(private _platform: Platform) {
+    super(_platform);
   }
 
-  ngOnInit() {
-    
-  }
-
-  setTitle(title) {
-    this.title = title
+  onInit(): void {
+    this.setTitle('contact');
   }
 
 }

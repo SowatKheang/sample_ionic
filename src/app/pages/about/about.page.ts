@@ -1,22 +1,21 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
+import { Platform } from '@ionic/angular';
+import { AbstractPage } from '../base/abstract.page';
 
 @Component({
   selector: 'app-about',
   templateUrl: './about.page.html',
   styleUrls: ['./about.page.scss'],
 })
-export class AboutPage implements OnInit {
 
-  title = 'about';
-
-  constructor() { }
-
-  ngOnInit() {
-    
+export class AboutPage extends AbstractPage {
+  
+  constructor(private _platform: Platform) { 
+    super(_platform);
   }
-
-  setTitle(title) {
-    this.title = title
+  
+  onInit(): void {
+    this.setTitle('about');
   }
 
 }

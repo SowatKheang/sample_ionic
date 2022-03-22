@@ -25,19 +25,19 @@
     </ion-button>
     <!-- Button with dropdown -->
     <ion-button #productbtn (mouseenter)="dropdown=true" (mouseleave)="hideDropdown($event)" fill="clear" color="light"
-      routerLink="/products" routerDirection="root">
+      [routerLink]="['/product']" routerDirection="root">
       {{ 'product' | translate }}
       <ion-icon slot="end" [name]="dropdown ? 'chevron-down' : 'chevron-up'"></ion-icon>
     </ion-button>
     <div *ngIf="dropdown" class="dropdown" (mouseleave)="dropdown = false" #dropdownbox>
-      <ion-item (click)="dropdown = false" [routerLink]="['/products']" [queryParams]="{ category: 'popular'}" lines="none" routerDirection="root" >
+      <ion-item (click)="dropdown = false" [routerLink]="['/product']" [queryParams]="{ category: 'popular'}" lines="none" routerDirection="root" >
         Trending Clothes
       </ion-item>
-      <ion-item (click)="dropdown = false" button [routerLink]="['/products']" [queryParams]="{ category: 'cloth'}"
+      <ion-item (click)="dropdown = false" button [routerLink]="['/product']" [queryParams]="{ category: 'cloth'}"
         lines="none" routerDirection="root" >
         Cloth
       </ion-item>
-      <ion-item (click)="dropdown = false" button [routerLink]="['/products']" [queryParams]="{ category: 'gadgets'}"
+      <ion-item (click)="dropdown = false" button [routerLink]="['/product']" [queryParams]="{ category: 'gadgets'}"
         lines="none" routerDirection="root">
         Gadgets
       </ion-item>
