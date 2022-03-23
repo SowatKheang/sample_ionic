@@ -10,7 +10,7 @@ import { RouterModule } from '@angular/router';
 @NgModule({
   declarations: [
     UserInfoComponent,
-    HeaderComponent
+    HeaderComponent,
   ],
   imports: [
     CommonModule,
@@ -19,7 +19,7 @@ import { RouterModule } from '@angular/router';
   ],
   exports: [
     UserInfoComponent,
-    HeaderComponent
+    HeaderComponent,
   ],
 })
 export class SharedModule { }

@@ -20,14 +20,23 @@
                     <div *ngIf="!_platform.is('mobile')">
                         <!-- Categoriey -->
                         <strong><h3 class="title"> {{ 'categories' | translate }}</h3></strong>
-                        <ion-list>
+                        <!-- <ion-list>
                             <ng-container *ngFor="let category of categories">
                                 <ion-item lines="none" class="category-item">
                                     <ion-icon class="categoy-item-icon" name="ellipse-outline"></ion-icon>
                                     {{ category.desc }}
                                 </ion-item>
                             </ng-container>
-                        </ion-list>
+                        </ion-list> -->
+
+                        <ul class="category-list-row">
+                            <li><a [routerLink]="['/product']">Men's</a></li>
+                            <li class="active"><a [routerLink]="['/product']" class="active">Women’s</a></li>
+                            <li><a [routerLink]="['/product']">Clothing</a></li>
+                            <li><a [routerLink]="['/product']">Shoes</a></li>
+                            <li><a [routerLink]="['/product']">Accessories</a></li>
+                            <li><a [routerLink]="['/product']">Uncategorized</a></li>
+                        </ul>
                         <!-- End Categoriey -->
         
                         <!-- Size -->

@@ -20,7 +20,7 @@
     width: 50px;
     height: 2px;
     bottom: -1px;
-    background-color: #00a758;
+    background-color: #a5cf30;
     // background-color: #f53f85;
 }
 
@@ -66,6 +66,45 @@ ion-col.products {
     }
 }
 
+// Category CSS
+.category-list-row {
+    padding-left: 0;
+    margin-bottom: 0;
+    list-style-type: none;
+}
+
+.category-list-row li {
+    margin-bottom: 9px;
+}
+
+.category-list-row li a {
+    display: inline-block;
+    position: relative;
+    padding-left: 25px;
+    font-size: 15px;
+    font-weight: 600;
+}
+
+.category-list-row li a::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 2.5px;
+    width: 15px;
+    -webkit-transition: 0.5s;
+    transition: 0.5s;
+    height: 15px;
+    border-radius: 50%;
+    border: 1px solid #000000;
+}
+
+.category-list-row li.active a::before {
+    background-color: #a5cf30;
+    border-color: #a5cf30;
+}
+
+// End Category CSS
+
 // Size CSS
 .size-list-row {
     list-style-type: none;
@@ -91,6 +130,12 @@ ion-col.products {
     font-weight: 600;
 }
 
+.size-list-row li.active a {
+    border-color: #a5cf30;
+    color: #ffffff;
+    background-color: #a5cf30;
+}
+
 ul {
     display: block;
     list-style-type: disc;
@@ -109,7 +154,7 @@ a {
 }
 
 // li.active {
-//     background-color: #00a758;
+//     background-color: #a5cf30;
 // }
 
 // li.active a {
@@ -232,6 +277,11 @@ a {
     font-weight: 600;
 }
 
+.brands-list-row li.active a::before {
+    background-color: #a5cf30;
+    border-color: #a5cf30;
+}
+
 .brands-list-row li a::before {
     content: '';
     position: absolute;
@@ -319,7 +369,7 @@ a {
 }
 
 .collection-filter-by-price .irs--flat .irs-from, .woocommerce-widget-area .price-list-widget .collection-filter-by-price .irs--flat .irs-to, .woocommerce-widget-area .price-list-widget .collection-filter-by-price .irs--flat .irs-single {
-    background-color: #00a758;
+    background-color: #a5cf30;
     padding: 1px 5px 1px 11.5px;
 }
 
@@ -343,7 +393,7 @@ a {
 }
 
 .collection-filter-by-price .irs--flat .irs-from::before, .woocommerce-widget-area .price-list-widget .collection-filter-by-price .irs--flat .irs-to::before, .woocommerce-widget-area .price-list-widget .collection-filter-by-price .irs--flat .irs-single::before {
-    border-top-color: #00a758;
+    border-top-color: #a5cf30;
 }
 
 .irs--flat .irs-from:before, .irs--flat .irs-to:before, .irs--flat .irs-single:before {
@@ -373,7 +423,7 @@ element.style {
 }
 
 .collection-filter-by-price .irs--flat .irs-to, .woocommerce-widget-area .price-list-widget .collection-filter-by-price .irs--flat .irs-single {
-    background-color: #00a758;
+    background-color: #a5cf30;
     padding: 1px 5px 1px 11.5px;
 }
 
@@ -387,7 +437,7 @@ element.style {
 }
 
 .collection-filter-by-price .irs--flat .irs-bar {
-    background-color: #00a758;
+    background-color: #a5cf30;
 }
 
 .irs--flat .irs-bar {
@@ -484,5 +534,4 @@ input {
     border-color: -internal-light-dark(rgb(118, 118, 118), rgb(133, 133, 133));
     border-image: initial;
 }
-
 // End Price CSS
