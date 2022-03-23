@@ -24,30 +24,71 @@
                         <!-- Size -->
                         <strong><h3 class="title">Size</h3></strong>
                         <ul class="size-list-row">
-                            <li><a href="#">20</a></li>
-                            <li><a href="#">24</a></li>
-                            <li class="active"><a href="#">36</a></li>
-                            <li><a href="#">30</a></li>
-                            <li><a href="#">XS</a></li>
-                            <li><a href="#">S</a></li>
-                            <li><a href="#">M</a></li>
-                            <li><a href="#">L</a></li>
-                            <li><a href="#">L</a></li>
-                            <li><a href="#">XL</a></li>
+                            <li><a [routerLink]="['/product']">20</a></li>
+                            <li><a [routerLink]="['/product']">24</a></li>
+                            <li class="active"><a [routerLink]="['/product']">36</a></li>
+                            <li><a [routerLink]="['/product']">30</a></li>
+                            <li><a [routerLink]="['/product']">XS</a></li>
+                            <li><a [routerLink]="['/product']">S</a></li>
+                            <li><a [routerLink]="['/product']">M</a></li>
+                            <li><a [routerLink]="['/product']">L</a></li>
+                            <li><a [routerLink]="['/product']">L</a></li>
+                            <li><a [routerLink]="['/product']">XL</a></li>
                         </ul>
-                        
                         <!-- End Size -->
         
                         <!-- Color -->
                         <strong><h3 class="title">Color</h3></strong>
+                        <ul class="color-list-row">
+                            <li class="active"><a [routerLink]="['/product']" title="Black" class="color-black"></a></li>
+                            <li><a [routerLink]="['/product']" title="Red" class="color-red"></a></li>
+                            <li><a [routerLink]="['/product']" title="Yellow" class="color-yellow"></a></li>
+                            <li><a [routerLink]="['/product']" title="White" class="color-white"></a></li>
+                            <li><a [routerLink]="['/product']" title="Blue" class="color-blue"></a></li>
+                            <li><a [routerLink]="['/product']" title="Green" class="color-green"></a></li>
+                            <li><a [routerLink]="['/product']" title="Yellow Green" class="color-yellowgreen"></a></li>
+                            <li><a [routerLink]="['/product']" title="Pink" class="color-pink"></a></li>
+                            <li><a [routerLink]="['/product']" title="Violet" class="color-violet"></a></li>
+                            <li><a [routerLink]="['/product']" title="Blue Violet" class="color-blueviolet"></a></li>
+                            <li><a [routerLink]="['/product']" title="Lime" class="color-lime"></a></li>
+                            <li><a [routerLink]="['/product']" title="Plum" class="color-plum"></a></li>
+                            <li><a [routerLink]="['/product']" title="Teal" class="color-teal"></a></li>
+                        </ul>
                         <!-- End Color -->
         
                         <!-- Brands -->
                         <strong><h3 class="title">Brands</h3></strong>
+                        <ul class="brands-list-row">
+                            <li><a [routerLink]="['/product']">Gucci</a></li>
+                            <li><a [routerLink]="['/product']">Virgil Abloh</a></li>
+                            <li><a [routerLink]="['/product']">Balenciaga</a></li>
+                            <li class="active"><a [routerLink]="['/product']">Moncler</a></li>
+                            <li><a [routerLink]="['/product']">Fendi</a></li>
+                            <li><a [routerLink]="['/product']">Versace</a></li>
+                        </ul>
                         <!-- End Brands -->
         
                         <!-- Price -->
                         <strong><h3 class="title">Price</h3></strong>
+                        <div class="collection-filter-by-price">
+                            <span class="irs irs--flat js-irs-0">
+                                <span class="irs">
+                                    <span class="irs-line" tabindex="0"></span>
+                                    <span class="irs-min" style="visibility: hidden;">0</span>
+                                    <span class="irs-max" style="visibility: hidden;">1 055</span>
+                                    <span class="irs-from" style="visibility: visible; left: -0.851475%;">0</span>
+                                    <span class="irs-to" style="visibility: visible; left: 91.9198%;">1 055</span>
+                                    <span class="irs-single" style="visibility: hidden; left: 41.9417%;">0 â€” 1 055</span>
+                                </span>
+                                <span class="irs-grid"></span>
+                                <span class="irs-bar" style="cursor: ew-resize; left: 2.24719%; width: 95.5056%;"></span>
+                                <span class="irs-shadow shadow-from" style="display: none;"></span>
+                                <span class="irs-shadow shadow-to" style="display: none;"></span>
+                                <span class="irs-handle from" style="left: 0%;"><i></i><i></i><i></i></span>
+                                <span class="irs-handle to" style="left: 95.5056%;"><i></i><i></i><i></i></span>
+                            </span>
+                            <input class="js-range-of-price irs-hidden-input" type="text" data-min="0" data-max="1055" name="filter_by_price" data-step="10" tabindex="-1" readonly="">
+                        </div>
                         <!-- End Price -->
                     </div>
                 </ion-col>
