@@ -9,5 +9,11 @@
     "km": "Khmer",
     "en": "English",
 
+    "categories": "Categories",
+    "size": "Size",
+    "color": "Color",
+    "brands": "Brands",
+    "price": "Price",
+
     "logout": "Logout"
 }

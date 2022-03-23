@@ -10,7 +10,7 @@
                 <ion-col class="web-left-menu" size-xl="4" size-md="4" size-sm="5" size-xs="12">
                     <div *ngIf="!_platform.is('mobile')">
                         <!-- Categoriey -->
-                        <strong><h3 class="title">Categories</h3></strong>
+                        <strong><h3 class="title"> {{ 'categories' | translate }}</h3></strong>
                         <ion-list>
                             <ng-container *ngFor="let category of categories">
                                 <ion-item lines="none" class="category-item">
@@ -22,7 +22,7 @@
                         <!-- End Categoriey -->
         
                         <!-- Size -->
-                        <strong><h3 class="title">Size</h3></strong>
+                        <strong><h3 class="title"> {{ 'size' | translate }}</h3></strong>
                         <ul class="size-list-row">
                             <li><a [routerLink]="['/product']">20</a></li>
                             <li><a [routerLink]="['/product']">24</a></li>
@@ -38,7 +38,7 @@
                         <!-- End Size -->
         
                         <!-- Color -->
-                        <strong><h3 class="title">Color</h3></strong>
+                        <strong><h3 class="title"> {{ 'color' | translate }}</h3></strong>
                         <ul class="color-list-row">
                             <li class="active"><a [routerLink]="['/product']" title="Black" class="color-black"></a></li>
                             <li><a [routerLink]="['/product']" title="Red" class="color-red"></a></li>
@@ -57,7 +57,7 @@
                         <!-- End Color -->
         
                         <!-- Brands -->
-                        <strong><h3 class="title">Brands</h3></strong>
+                        <strong><h3 class="title"> {{ 'brands' | translate }}</h3></strong>
                         <ul class="brands-list-row">
                             <li><a [routerLink]="['/product']">Gucci</a></li>
                             <li><a [routerLink]="['/product']">Virgil Abloh</a></li>
@@ -69,7 +69,7 @@
                         <!-- End Brands -->
         
                         <!-- Price -->
-                        <strong><h3 class="title">Price</h3></strong>
+                        <strong><h3 class="title"> {{ 'price' | translate }}</h3></strong>
                         <div class="collection-filter-by-price">
                             <span class="irs irs--flat js-irs-0">
                                 <span class="irs">
@@ -96,7 +96,7 @@
     
                 <!-- Products -->
                 <ion-col class="products" size-xl="8" size-md="8" size-sm="12" size-xs="12">
-                    <strong><h3 class="title">Products</h3></strong>
+                    <strong><h3 class="title"> {{ 'product' | translate }}</h3></strong>
                     <ion-grid>
                         <ion-row>
                             <ion-col size-lg="5" size-xl="6" size-md="6" size-sm="6" size-xs="12" *ngFor="let product of products">

@@ -20,11 +20,11 @@
     <img src="https://ionicacademy.com/wp-content/uploads/2020/02/ionic-Logo.svg" width="50px">
   </ion-col>
   <ion-col size="8" class="ion-text-left">
-    <ion-button fill="clear" color="light" [routerLink]="['/']" routerDirection="root">
+    <ion-button class="title" fill="clear" color="light" [routerLink]="['/']" routerDirection="root">
       {{ 'home' | translate }}
     </ion-button>
 
-    <ion-button fill="clear" color="light" [routerLink]="['/product']" routerDirection="root">
+    <ion-button class="title" fill="clear" color="light" [routerLink]="['/product']" routerDirection="root">
       {{ 'product' | translate }}
     </ion-button>
     <!-- Button with dropdown -->
@@ -48,17 +48,17 @@
     </div> -->
     <!-- End Button with dropdown -->
 
-    <ion-button fill="clear" color="light" [routerLink]="['/about']" routerDirection="root">
+    <ion-button class="title" fill="clear" color="light" [routerLink]="['/about']" routerDirection="root">
       {{ 'about' | translate }}
     </ion-button>
-    <ion-button fill="clear" color="light" [routerLink]="['/contact']" routerDirection="root">
+    <ion-button class="title" fill="clear" color="light" [routerLink]="['/contact']" routerDirection="root">
       {{ 'contact' | translate }}
     </ion-button>
   </ion-col>
   <ion-col size="2" class="ion-text-right">
     <ion-button fill="clear" color="light" (click)="useLanguage()">
-      <span *ngIf="isEn">English</span>
-      <span *ngIf="!isEn">ខ្មែរ</span>
+      <span class="title" *ngIf="isEn">English</span>
+      <span class="title" *ngIf="!isEn">ខ្មែរ</span>
     </ion-button>
     <ion-button fill="clear" color="light">
       <ion-icon slot="icon-only" name="cart"></ion-icon>

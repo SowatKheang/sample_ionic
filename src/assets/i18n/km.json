@@ -9,5 +9,11 @@
     "km": "ខ្មែរ",
     "en": "អង់គ្លេស",
 
+    "categories": "Categories",
+    "size": "ទំហំ",
+    "color": "ពណ៌",
+    "brands": "Brands",
+    "price": "តម្លៃ",
+
     "logout": "ចាកចេញ"
 }

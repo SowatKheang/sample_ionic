@@ -4,6 +4,10 @@
     box-shadow: 1px 1px 1px 1px #dad9d9;
 }
 
+.title {
+    font-weight: 700;
+}
+
 @media(min-width: 768px) {
     .mobile-header {
         display: none;
