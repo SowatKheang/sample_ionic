@@ -54,4 +54,55 @@ ion-col.products {
     .content {
         padding: 0px;
     }
+
+    .web-left-menu {
+        display: none;
+    }
+}
+
+@media(max-width: 768px) {
+    .web-left-menu {
+        display: none;
+    }
+}
+
+.size-list-row {
+    list-style-type: none;
+    padding-left: 0;
+    margin-bottom: 0;
+    margin-top: -10px;
+}
+
+.size-list-row li {
+    display: inline-block;
+    margin-right: 10px;
+    margin-top: 10px;
+}
+
+.size-list-row li a {
+    width: 35px;
+    height: 35px;
+    display: inline-block;
+    line-height: 33px;
+    border: 1px solid #eeeeee;
+    text-align: center;
+    font-size: 15px;
+    font-weight: 600;
+}
+
+ul {
+    display: block;
+    list-style-type: disc;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    padding-inline-start: 40px;
+}
+
+a {
+    -webkit-transition: 0.5s;
+    transition: 0.5s;
+    color: #000000;
+    text-decoration: none;
 }
