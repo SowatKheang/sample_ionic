@@ -37,4 +37,10 @@ export class ProductPage extends AbstractPage {
 
   }
 
+  doRefresh(event) {
+    setTimeout(() => {
+      event.target.complete();
+    }, 1000);
+  }
+
 }
