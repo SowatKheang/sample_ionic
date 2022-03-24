@@ -4,6 +4,7 @@
 <ion-header *ngIf="!isDesktop">
     <ion-toolbar>
         <ion-buttons slot="start">
+            <!-- ion-back-button will show on nested route only defaultHref is defined -->
             <ion-back-button defaultHref="products"></ion-back-button>
         </ion-buttons>
         <ion-title>{{ title | translate }}</ion-title>
@@ -12,7 +13,7 @@
 
 <ion-content>
 
-    <h3>Product Detail</h3>
+    <h3>Product {{ productId }}</h3>
 
 </ion-content>
 

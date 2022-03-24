@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { Platform } from '@ionic/angular';
 import { HttpService } from 'src/app/services/http/http.service';
 import { AbstractPage } from '../../base/abstract.page';
@@ -10,12 +11,22 @@ import { AbstractPage } from '../../base/abstract.page';
 })
 export class ProductDetailPage extends AbstractPage {
 
-  constructor(private _platform: Platform, private http: HttpService) {
+  productId: number;
+
+  constructor(private _platform: Platform, private http: HttpService, private route: ActivatedRoute) {
     super(_platform);
   }
 
   onInit(): void {
     this.setTitle('product.detail');
+
+    this.route.paramMap.subscribe(data => {
+      if (data && data['params']) {
+        this.productId = data['params'].id;
+        console.log(this.productId);
+      }
+    });
+
   }
 
 }
