@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Platform } from '@ionic/angular';
+import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
+import { CloudFirestoreService } from 'src/app/services/cloud-firestore/cloud-firestore.service';
 import { HttpService } from 'src/app/services/http/http.service';
 import { AbstractPage } from '../../base/abstract.page';
 
@@ -13,7 +16,14 @@ export class ProductDetailPage extends AbstractPage {
 
   productId: number;
 
-  constructor(private _platform: Platform, private http: HttpService, private route: ActivatedRoute) {
+  datas: any;
+
+  constructor(
+    private _platform: Platform, 
+    private http: HttpService,
+    private route: ActivatedRoute,
+    private cloudFirestoreService: CloudFirestoreService
+  ) {
     super(_platform);
   }
 
@@ -25,6 +35,10 @@ export class ProductDetailPage extends AbstractPage {
         this.productId = data['params'].id;
         console.log(this.productId);
       }
+    });
+
+    this.cloudFirestoreService.getData().subscribe(res => {
+      this.datas = res as string[];
     });
 
   }

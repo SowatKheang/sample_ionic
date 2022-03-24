@@ -12,8 +12,12 @@
 </ion-header>
 
 <ion-content>
-
     <h3>Product {{ productId }}</h3>
-
+    <ion-item lines="none" *ngFor="let data of datas">
+        <ion-label>
+            <h2>{{ data.name}}</h2>
+        </ion-label>
+    </ion-item>
 </ion-content>
+
 

@@ -144,3 +144,12 @@ await storage.clear();
 ```ts
 await storage.keys()
 ```
+
+## Firebase
+### 1. Setup Firebase Project
+```
+https://www.positronx.io/set-up-firebase-database-in-ionic-angular/
+```
+```
+npm install firebase @angular/fire --save
+```
