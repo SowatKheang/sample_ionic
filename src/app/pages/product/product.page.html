@@ -118,7 +118,7 @@
                     <ion-grid>
                         <ion-row>
                             <ion-col size-lg="5" size-xl="6" size-md="6" size-sm="6" size-xs="12" *ngFor="let product of products">
-                                <ion-card>
+                                <ion-card [routerLink]="['/product', product.id]">
                                     <img [src]="product.image_url" />
                                     <ion-card-header>
                                         <ion-card-title>{{ product.desc }}</ion-card-title>

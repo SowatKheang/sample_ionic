@@ -35,7 +35,7 @@ export class AppComponent implements OnInit {
     {
       title: 'product',
       icon: 'list',
-      path: '/product'
+      path: '/products'
     },
     {
       title: 'about',

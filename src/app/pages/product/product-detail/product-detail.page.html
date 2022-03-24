@@ -1,0 +1,18 @@
+<app-header *ngIf="isDesktop" [title]="title"></app-header>
+<br *ngIf="isDesktop">
+
+<ion-header *ngIf="!isDesktop">
+    <ion-toolbar>
+        <ion-buttons slot="start">
+            <ion-back-button defaultHref="products"></ion-back-button>
+        </ion-buttons>
+        <ion-title>{{ title | translate }}</ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+    <h3>Product Detail</h3>
+
+</ion-content>
+

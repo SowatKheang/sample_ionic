@@ -1,7 +1,7 @@
 <!-- Mobile Header -->
 <ion-header class="mobile-header">
   <ion-toolbar>
-    <ion-buttons slot="start">
+    <ion-buttons *ngIf="!isDesktop" slot="start">
       <ion-menu-button></ion-menu-button>
     </ion-buttons>
     <ion-title>{{ title | translate }}</ion-title>
@@ -25,7 +25,7 @@
       {{ 'home' | translate }}
     </ion-button>
 
-    <ion-button class="title" fill="clear" color="light" [routerLink]="['/product']" routerDirection="root">
+    <ion-button class="title" fill="clear" color="light" [routerLink]="['/products']" routerDirection="root">
       {{ 'product' | translate }}
     </ion-button>
     <!-- Button with dropdown -->

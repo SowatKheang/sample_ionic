@@ -29,15 +29,15 @@ export class ProductPage extends AbstractPage {
     ];
     
     this.products = [
-      { desc: "Logn Sleeve Leopard T-Shirt", price: "$250", image_url: "https://templates.hibootstrap.com/xton/default/assets/img/products/img1.jpg" },
-      { desc: "Gildan Men's Crew T-Shirt", price: "$150", image_url: "https://templates.hibootstrap.com/xton/default/assets/img/products/img4.jpg" },
-      { desc: "Open Front Knit Swaters", price: "$200", image_url: "https://templates.hibootstrap.com/xton/default/assets/img/products/img9.jpg" },
-      { desc: "Hanes Men's Pullover", price: "$200", image_url: "https://templates.hibootstrap.com/xton/default/assets/img/products/img3.jpg" },
+      { id: 1, desc: "Logn Sleeve Leopard T-Shirt", price: "$250", image_url: "https://templates.hibootstrap.com/xton/default/assets/img/products/img1.jpg" },
+      { id: 2, desc: "Gildan Men's Crew T-Shirt", price: "$150", image_url: "https://templates.hibootstrap.com/xton/default/assets/img/products/img4.jpg" },
+      { id: 3, desc: "Open Front Knit Swaters", price: "$200", image_url: "https://templates.hibootstrap.com/xton/default/assets/img/products/img9.jpg" },
+      { id: 4, desc: "Hanes Men's Pullover", price: "$200", image_url: "https://templates.hibootstrap.com/xton/default/assets/img/products/img3.jpg" },
     ];
 
   }
 
-  doRefresh(event) {
+  doRefresh(event): void {
     setTimeout(() => {
       event.target.complete();
     }, 1000);
