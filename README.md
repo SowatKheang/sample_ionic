@@ -153,3 +153,59 @@ https://www.positronx.io/set-up-firebase-database-in-ionic-angular/
 ```
 npm install firebase @angular/fire --save
 ```
+
+## Online/Offline Mode
+### 1. Create a service
+Example
+```
+ionic g service services/network/connectivity
+```
+### 2. Install network plugin
+```
+npm install @capacitor/network
+```
+### 3. Implementation
+Open the former created service and add the following
+
+```ts
+import { Injectable } from '@angular/core';
+import { Network } from '@capacitor/network';
+
+@Injectable({
+  providedIn: 'root'
+})
+export class ConnectivityService {
+
+  onlineIndicator: boolean;
+
+  constructor() { }
+
+  openCheckNetwork() {
+    Network.addListener('networkStatusChange', (status) => {
+      console.log('Network status changed', status);
+      this.onlineIndicator = status.connected;
+    });
+  }
+
+  async logNetworkState() {
+    const status = await Network.getStatus();
+    console.log('Network status:', status);
+    this.onlineIndicator = status.connected;
+  }
+}
+```
+
+### 4. Calling this class fron anywhere
+#### Example: Calling in app.component.ts
+- Add this constructor
+```ts
+private connectivity: ConnectivityService,
+```
+-Add this to ngOninit() 
+```ts
+async ngOnInit() {
+  await this.connectivity.openCheckNetwork();
+  await this.connectivity.logNetworkState();
+}
+```
+

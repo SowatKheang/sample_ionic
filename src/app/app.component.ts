@@ -2,6 +2,7 @@ import { Component, HostListener, OnInit } from '@angular/core';
 import { StatusBar } from '@capacitor/status-bar';
 import { MenuController, Platform } from '@ionic/angular';
 import { AppConst } from './consts/app-const';
+import { ConnectivityService } from './services/network/connectivity.service';
 import { StorageService } from './services/storages/storage-service.service';
 import { TranslateConfigService } from './services/translate/translate-config.service';
 
@@ -60,7 +61,8 @@ export class AppComponent implements OnInit {
     private menuCtrl: MenuController, 
     private platform: Platform, 
     private translateConfigService: TranslateConfigService,
-    private storageService: StorageService
+    private storageService: StorageService,
+    private connectivity: ConnectivityService,
   ) {
     this.isDesktop = this.platform.is('desktop');
     if (!this.isDesktop) {
@@ -73,7 +75,7 @@ export class AppComponent implements OnInit {
     this.initializeApp();
   }
 
-  ngOnInit() {
+  async ngOnInit() {
     // const width = this.platform.width();
     // this.toggleMenu(width);
     // const path = window.location.pathname.split('/')[1];
@@ -81,6 +83,8 @@ export class AppComponent implements OnInit {
     // if (path !== undefined) {
     //   this.selectedIndex = this.menu_items.findIndex(page => page.title.toLowerCase() === path.toLowerCase());
     // }
+    await this.connectivity.openCheckNetwork();
+    await this.connectivity.logNetworkState();
   }
 
   // @HostListener('window:resize', ['$event'])
