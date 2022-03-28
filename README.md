@@ -201,7 +201,7 @@ export class ConnectivityService {
 ```ts
 private connectivity: ConnectivityService,
 ```
--Add this to ngOninit() 
+- Add this to ngOnInit() 
 ```ts
 async ngOnInit() {
   await this.connectivity.openCheckNetwork();

@@ -54,7 +54,7 @@ export class SpaceXInfoState {
         return state.info.ceo;
     }
 
-    @Action(GET_SPACEX_DATA) /// in file [action.ts]
+    @Action(GET_SPACEX_DATA) /// in file [action.ts] action class
     public getSpaceXData({ patchState, getState }: StateContext<SpaceXModel>) {
         return this.network.getSpaceXData().pipe(
             map((res: any) => {

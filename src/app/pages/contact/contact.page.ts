@@ -4,8 +4,10 @@ import { AbstractPage } from '../base/abstract.page';
 
 @Component({
   selector: 'app-contact',
-  templateUrl: './contact.page.html',
-  styleUrls: ['./contact.page.scss'],
+  // templateUrl: './contact.page.html',
+  // styleUrls: ['./contact.page.÷scs÷s'],
+  templateUrl: './contact_page_2.html',
+  styleUrls: ['./contact_page_2.scss'],
 })
 export class ContactPage extends AbstractPage {
   

@@ -1,0 +1,248 @@
+ion-content {
+    --padding-bottom: 10px;
+    --padding-end: 10px;
+    --padding-start: 10px;
+}
+
+@media (max-width: 2000px) {
+    ion-content {
+        --padding-bottom: 10px;
+        --padding-end: 80px;
+        --padding-start: 80px;
+    }
+}
+
+@media (max-width: 1400px) {
+    ion-content {
+        --padding-bottom: 10px;
+        --padding-end: 50px;
+        --padding-start: 50px;
+    }
+}
+
+@media (max-width: 1200px) {
+    ion-content {
+        --padding-bottom: 10px;
+        --padding-end: 50px;
+        --padding-start: 50px;
+    }
+}
+
+@media (max-width: 992px) {
+    ion-content {
+        --padding-bottom: 10px;
+        --padding-end: 50px;
+        --padding-start: 50px;
+    }
+}
+
+@media (max-width: 768px) {
+    ion-content {
+        --padding-bottom: 10px;
+        --padding-end: 50px;
+        --padding-start: 50px;
+    }
+}
+
+@media (max-width: 576px) {
+    ion-content {
+        --padding-bottom: 10px;
+        --padding-end: 10px;
+        --padding-start: 10px;
+    }
+}
+
+label>span {
+    color: rgb(255, 4, 4);
+}
+
+div {
+    display: block;
+}
+
+.contact-form h3 {
+    margin-bottom: 15px;
+    font-size: 22px;
+    font-weight: 600;
+}
+
+p {
+    margin-bottom: 15px;
+    color: #777;
+    line-height: 1.8;
+    font-size: 15px;
+}
+
+p a {
+    text-decoration: none;
+    color: #000;
+    font-weight: 500;
+}
+
+form {
+    display: block;
+    margin-top: 0em;
+}
+
+.contact-form form .form-group {
+    margin-bottom: 20px;
+}
+
+.contact-form form .form-group label {
+    display: block;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+label {
+    cursor: default;
+}
+
+.form-control {
+    background-color: #f5f5f5;
+    height: 48px;
+    border-radius: 0;
+    -webkit-box-shadow: unset!important;
+    box-shadow: unset!important;
+    padding: 0 0 0 15px;
+    border: 1px solid #f5f5f5;
+    color: #000;
+    font-size: 15px;
+    -webkit-transition: .5s;
+    transition: .5s;
+}
+
+.form-control {
+    display: block;
+    width: 100%;
+    padding: 0.375rem 0.75rem;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #212529;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    border-radius: 0.25rem;
+    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+
+button, input, optgroup, select, textarea {
+    margin: 0;
+    font-family: inherit;
+    font-size: inherit;
+    line-height: inherit;
+}
+
+textarea.form-control {
+    padding-top: 15px;
+    height: auto!important;
+}
+
+textarea.form-control {
+    min-height: calc(1.5em + 0.75rem + 2px);
+}
+
+.default-btn {
+    display: inline-block;
+    border: 1px solid #a5cf30;
+    padding: 10px 30px;
+    -webkit-transition: .5s;
+    transition: .5s;
+    text-transform: uppercase;
+    background-color: #a5cf30;
+    color: #fff;
+    font-size: 14px;
+}
+
+.contact-info h3 {
+    margin-bottom: 15px;
+    font-size: 22px;
+    font-weight: 600;
+}
+
+.contact-info .contact-list {
+    padding-left: 0;
+    margin-bottom: 25px;
+    list-style-type: none;
+}
+
+.contact-info .contact-list li {
+    padding-left: 0;
+    margin-bottom: 25px;
+    list-style-type: none;
+}
+
+.contact-info .contact-list li ion-icon {
+    color: #a5cf30;
+    font-size: 20px;
+}
+
+.contact-info .contact-list li a {
+    color: #000000;
+    text-decoration: none;
+    font-weight: 700;
+}
+
+dl, ol, ul {
+    margin-top: 0;
+    margin-bottom: 1rem;
+}
+
+ul {
+    display: block;
+    list-style-type: disc;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    padding-inline-start: 40px;
+}
+
+.contact-info .opening-hours {
+    padding-left: 0;
+    margin-bottom: 25px;
+    list-style-type: none;
+}
+
+.contact-info .opening-hours li {
+    margin-bottom: 25px;
+}
+
+li {
+    display: list-item;
+}
+
+.contact-info .social {
+    padding-left: 0;
+    list-style-type: none;
+    margin-bottom: 0;
+}
+
+.contact-info .social li {
+    display: inline-block;
+    margin-right: 2px;
+}
+
+.contact-info .social li a {
+    width: 30px;
+    height: 30px;
+    text-align: center;
+    display: block;
+    color: #a5cf30;
+    background-color: #f4f4f4;
+    font-size: 18px;
+    position: relative;
+    border-radius: 2px;
+}
+
+.contact-info .social li a ion-icon {
+    position: absolute;
+    top: 50%;
+    right: 20%;
+    transform: translateY(-49%);
+}
