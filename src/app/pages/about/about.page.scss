@@ -1,0 +1,113 @@
+
+h4, h5 {
+    margin-bottom: 15px;
+    font-weight: 600;
+}
+
+ion-content {
+    --padding-bottom: 10px;
+    --padding-end: 10px;
+    --padding-start: 10px;
+}
+
+@media (max-width: 2000px) {
+    ion-content {
+        --padding-bottom: 10px;
+        --padding-end: 80px;
+        --padding-start: 80px;
+    }
+}
+
+@media (max-width: 1400px) {
+    ion-content {
+        --padding-bottom: 10px;
+        --padding-end: 50px;
+        --padding-start: 50px;
+    }
+}
+
+@media (max-width: 1200px) {
+    ion-content {
+        --padding-bottom: 10px;
+        --padding-end: 50px;
+        --padding-start: 50px;
+    }
+}
+
+@media (max-width: 992px) {
+    ion-content {
+        --padding-bottom: 10px;
+        --padding-end: 50px;
+        --padding-start: 50px;
+    }
+}
+
+@media (max-width: 768px) {
+    ion-content {
+        --padding-bottom: 10px;
+        --padding-end: 50px;
+        --padding-start: 50px;
+    }
+}
+
+@media (max-width: 576px) {
+    ion-content {
+        --padding-bottom: 10px;
+        --padding-end: 16px;
+        --padding-start: 16px;
+    }
+}
+
+p {
+    text-align: justify;
+}
+
+hr {
+    margin: 1rem 0;
+    color: inherit;
+    background-color: currentColor;
+    border: 0;
+    opacity: .25;
+}
+
+.d-flex {
+    display: flex!important;
+}
+
+.card {
+    border: 0px solid rgb(0 0 0 / 0%);
+    box-shadow: 0 0.3rem 0.8rem rgb(0 0 0 / 12%);
+}
+
+.rounded-0 {
+    border-radius: 0!important;
+}
+
+.w-100 {
+    width: 100%!important;
+}
+
+.shadow-none {
+    box-shadow: none!important;
+}
+
+.card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
+    background-color: #fff;
+    background-clip: border-box;
+    // border: 1px solid rgba(0, 0, 0, .125);
+    // border-radius: 0.25rem;
+}
+
+.card-body {
+    flex: 1 1 auto;
+    padding: 1rem 1rem;
+}
+
+.border {
+    border: 1px solid #dee2e6!important;
+}
