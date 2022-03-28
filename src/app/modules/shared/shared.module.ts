@@ -4,6 +4,7 @@ import { UserInfoComponent } from 'src/app/components/user-info/user-info.compon
 import { HeaderComponent } from 'src/app/components/header/header.component';
 import { TranslateModule } from '@ngx-translate/core';
 import { RouterModule } from '@angular/router';
+import { FooterComponent } from 'src/app/components/footer/footer/footer.component';
 
 
 
@@ -11,6 +12,7 @@ import { RouterModule } from '@angular/router';
   declarations: [
     UserInfoComponent,
     HeaderComponent,
+    FooterComponent,
   ],
   imports: [
     CommonModule,
@@ -20,6 +22,7 @@ import { RouterModule } from '@angular/router';
   exports: [
     UserInfoComponent,
     HeaderComponent,
+    FooterComponent,
   ],
 })
 export class SharedModule { }

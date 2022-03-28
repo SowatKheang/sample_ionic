@@ -1,0 +1,182 @@
+.footer-area {
+    padding-top: 100px;
+    background-color: #000;
+    padding-left: 150px;
+    padding-right: 150px;
+    // padding-bottom: 100px;
+    // position: relative;
+    // z-index: 1;
+}
+
+footer {
+    display: block;
+}
+
+.single-footer-widget {
+    margin-bottom: 30px;
+}
+
+.single-footer-widget h3 {
+    color: #fff;
+    margin-bottom: 25px;
+    padding-bottom: 5px;
+    position: relative;
+    border-bottom: 1px solid rgba(255,255,255,.1);
+    font-size: 22px;
+    font-weight: 700;
+}
+
+.single-footer-widget h3::before {
+    width: 50px;
+    height: 1px;
+    bottom: -1px;
+    content: '';
+    position: absolute;
+    left: 0;
+    background-color: #a5cf30;
+}
+
+.single-footer-widget .about-the-store p {
+    color: #fff;
+    font-weight: 600;
+}
+
+.single-footer-widget .about-the-store ul li a {
+    color: #fff;
+    font-weight: 600;
+}
+
+p {
+    margin-bottom: 15px;
+    color: #777;
+    line-height: 1.8;
+    font-size: 15px;
+}
+
+.single-footer-widget .about-the-store .footer-contact-info {
+    padding-left: 0;
+    margin-bottom: 0;
+    list-style-type: none;
+}
+
+.single-footer-widget .about-the-store .footer-contact-info li {
+    padding-left: 0px;
+    margin-bottom: 16px;
+    color: #fff;
+}
+
+.single-footer-widget .about-the-store .footer-contact-info li a {
+    padding-left: 8px;
+}
+
+.single-footer-widget .about-the-store .footer-contact-info ion-icon {
+    color: #fff;
+}
+
+ul {
+    display: block;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    padding-inline-start: 40px;
+}
+
+.single-footer-widget .social-link {
+    padding-left: 0;
+    list-style-type: none;
+    margin-top: 20px;
+    margin-bottom: 0;
+}
+
+.single-footer-widget .social-link li {
+    display: inline-block;
+    margin-right: 2px;
+    color: #fff;
+}
+
+.single-footer-widget .social-link li a {
+    width: 30px;
+    height: 30px;
+    text-align: center;
+    color: #a5cf30;
+    background-color: #fff;
+    font-size: 18px;
+    position: relative;
+    border-radius: 2px;
+}
+
+.single-footer-widget .social-link li a ion-icon {
+    position: absolute;
+    top: 50%;
+    right: 20%;
+    -webkit-transform: translateY(-49%);
+    transform: translateY(-49%);
+}
+
+.d-block {
+    display: block!important;
+}
+
+a {
+    transition: .5s;
+    text-decoration: none;
+}
+
+.single-footer-widget .quick-links li {
+    margin-bottom: 16px;
+}
+
+.single-footer-widget .quick-links li a {
+    color: #fff;
+}
+
+.single-footer-widget .customer-support li {
+    margin-bottom: 16px;
+}
+
+.single-footer-widget .customer-support li a {
+    color: #fff;
+}
+
+.single-footer-widget p {
+    color: #fff;
+}
+
+.single-footer-widget .footer-newsletter-box .newsletter-form {
+    position: relative;
+    margin-top: -5px;
+}
+
+.single-footer-widget .footer-newsletter-box .newsletter-form label {
+    display: block;
+    color: #fff;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+.single-footer-widget .footer-newsletter-box .newsletter-form .input-newsletter {
+    width: 100%;
+    background-color: transparent;
+    border: 1px solid #848282;
+    border-radius: 0;
+    height: 45px;
+    padding-left: 10px;
+    color: #fff;
+    font-size: 15px;
+    border-radius: 0.25rem;
+}
+
+.single-footer-widget .footer-newsletter-box .newsletter-form button {
+    display: block;
+    margin-top: 0.8rem;
+    width: 100%;
+    border-radius: 0.25rem;
+    background-color: #a5cf30;
+    color: #fff;
+    border: none;
+    padding: 12px 25px;
+    transition: .5s;
+    font-weight: 600;
+    font-size: 15px;
+}
