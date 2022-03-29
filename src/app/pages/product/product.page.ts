@@ -28,18 +28,29 @@ export class ProductPage extends AbstractPage {
       { desc: 'Accessories', descEn: 'Accessories'},
     ];
     
-    this.products = [
-      { id: 1, desc: "Logn Sleeve Leopard T-Shirt", price: "$250", image_url: "https://templates.hibootstrap.com/xton/default/assets/img/products/img1.jpg" },
-      { id: 2, desc: "Gildan Men's Crew T-Shirt", price: "$150", image_url: "https://templates.hibootstrap.com/xton/default/assets/img/products/img4.jpg" },
-      { id: 3, desc: "Open Front Knit Swaters", price: "$200", image_url: "https://templates.hibootstrap.com/xton/default/assets/img/products/img9.jpg" },
-      { id: 4, desc: "Hanes Men's Pullover", price: "$200", image_url: "https://templates.hibootstrap.com/xton/default/assets/img/products/img3.jpg" },
-    ];
+    this.getProduct();
 
+    // this.products = [
+    //   { id: 1, desc: "Logn Sleeve Leopard T-Shirt", price: "$250", photo: "https://templates.hibootstrap.com/xton/default/assets/img/products/img1.jpg" },
+    //   { id: 2, desc: "Gildan Men's Crew T-Shirt", price: "$150", photo: "https://templates.hibootstrap.com/xton/default/assets/img/products/img4.jpg" },
+    //   { id: 3, desc: "Open Front Knit Swaters", price: "$200", photo: "https://templates.hibootstrap.com/xton/default/assets/img/products/img9.jpg" },
+    //   { id: 4, desc: "Hanes Men's Pullover", price: "$200", photo: "https://templates.hibootstrap.com/xton/default/assets/img/products/img3.jpg" },
+    // ];
+
+  }
+
+  async getProduct() {
+    await this.http.get(this.http.productApi, null).subscribe((res)=> {
+      this.products = res['data'];
+      console.log(this.products);
+    });
   }
 
   doRefresh(event): void {
     setTimeout(() => {
-      event.target.complete();
+      this.getProduct().then(()=> {
+        event.target.complete();
+      });
     }, 1000);
   }
 
