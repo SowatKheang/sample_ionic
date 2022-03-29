@@ -20,15 +20,13 @@ export class ProductPage extends AbstractPage {
   onInit(): void {
     this.setTitle('product');
 
-    this.categories = [
-      { desc: 'Men\'s', descEn: 'Men\'s'},
-      { desc: 'Women\'s', descEn: 'Women\'s'},
-      { desc: 'Clothing', descEn: 'Clothing'},
-      { desc: 'Shoes', descEn: 'Shoes'},
-      { desc: 'Accessories', descEn: 'Accessories'},
-    ];
-    
-    this.getProduct();
+    // this.categories = [
+    //   { desc: 'Men\'s', descEn: 'Men\'s'},
+    //   { desc: 'Women\'s', descEn: 'Women\'s'},
+    //   { desc: 'Clothing', descEn: 'Clothing'},
+    //   { desc: 'Shoes', descEn: 'Shoes'},
+    //   { desc: 'Accessories', descEn: 'Accessories'},
+    // ];
 
     // this.products = [
     //   { id: 1, desc: "Logn Sleeve Leopard T-Shirt", price: "$250", photo: "https://templates.hibootstrap.com/xton/default/assets/img/products/img1.jpg" },
@@ -37,6 +35,16 @@ export class ProductPage extends AbstractPage {
     //   { id: 4, desc: "Hanes Men's Pullover", price: "$200", photo: "https://templates.hibootstrap.com/xton/default/assets/img/products/img3.jpg" },
     // ];
 
+    this.getProduct();
+    this.getCategory();
+
+  }
+
+  async getCategory() {
+    await this.http.get(this.http.categoryApi, null).subscribe((res)=> {
+      this.categories = res['data'];
+      console.log(this.categories);
+    });
   }
 
   async getProduct() {

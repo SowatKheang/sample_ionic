@@ -14,6 +14,7 @@ export class HttpService {
   readonly spaceXInfoApi : string = "/info";
   readonly userApi: string = 'users'
   readonly productApi: string = 'products'
+  readonly categoryApi: string = 'categories'
 
   constructor(private http: HttpClient) { }
 

@@ -29,13 +29,14 @@
                             </ng-container>
                         </ion-list> -->
 
-                        <ul class="category-list-row">
-                            <li><a [routerLink]="['/product']">Men's</a></li>
+                        <ul class="category-list-row" *ngFor="let category of categories">
+                            <li [ngClass]="{'active':  category.description === 'Clothing'}"><a [routerLink]="['/product']"> {{ category.description }} </a></li>
+                            <!-- <li><a [routerLink]="['/product']">Men's</a></li>
                             <li class="active"><a [routerLink]="['/product']" class="active">Women’s</a></li>
                             <li><a [routerLink]="['/product']">Clothing</a></li>
                             <li><a [routerLink]="['/product']">Shoes</a></li>
                             <li><a [routerLink]="['/product']">Accessories</a></li>
-                            <li><a [routerLink]="['/product']">Uncategorized</a></li>
+                            <li><a [routerLink]="['/product']">Uncategorized</a></li> -->
                         </ul>
                         <!-- End Categoriey -->
         
