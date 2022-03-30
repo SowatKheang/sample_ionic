@@ -29,7 +29,7 @@
                             </ng-container>
                         </ion-list> -->
 
-                        <ul class="category-list-row" *ngFor="let category of categories">
+                        <ul class="category-list-row" *ngFor="let category of categoryList">
                             <li [ngClass]="{'active':  category.description === 'Clothing'}"><a [routerLink]="['/product']"> {{ category.description }} </a></li>
                             <!-- <li><a [routerLink]="['/product']">Men's</a></li>
                             <li class="active"><a [routerLink]="['/product']" class="active">Women’s</a></li>
@@ -118,7 +118,7 @@
                     <strong><h3 class="title"> {{ 'product' | translate }}</h3></strong>
                     <ion-grid>
                         <ion-row>
-                            <ion-col size-lg="5" size-xl="6" size-md="6" size-sm="6" size-xs="12" *ngFor="let product of products">
+                            <ion-col size-lg="5" size-xl="6" size-md="6" size-sm="6" size-xs="12" *ngFor="let product of productList">
                                 <ion-card [routerLink]="['/product', product.id]">
                                     <img [src]="product.photo" />
                                     <ion-card-header>

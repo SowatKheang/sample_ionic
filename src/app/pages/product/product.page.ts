@@ -1,7 +1,12 @@
 import { Component } from '@angular/core';
 import { Platform } from '@ionic/angular';
+import { Store } from '@ngxs/store';
 import { HttpService } from 'src/app/services/http/http.service';
 import { AbstractPage } from '../base/abstract.page';
+import { ProductState, ProductListModel } from '../../ngxs/product/state';
+import { Product } from '../../ngxs/product/action';
+import { CategoryState, CategoryListModel } from '../../ngxs/category/state';
+import { Category } from '../../ngxs/category/action';
 
 @Component({
   selector: 'app-product',
@@ -12,9 +17,26 @@ export class ProductPage extends AbstractPage {
 
   categories = [];
   products = [];
+  productList: ProductListModel;
+  categoryList: CategoryListModel;
 
-  constructor(private _platform: Platform, private http: HttpService) {
+  constructor(
+    private _platform: Platform, 
+    private http: HttpService,
+    private store: Store,
+  ) {
     super(_platform);
+  }
+  
+  ionViewWillEnter(): void {
+    this.store.dispatch(new Product.GetAll()).subscribe((_) => {
+      this.getProducts();
+    });
+
+    this.store.dispatch(new Category.GetAll()).subscribe((_) => {
+      this.getCategories();
+    });
+
   }
 
   onInit(): void {
@@ -35,8 +57,8 @@ export class ProductPage extends AbstractPage {
     //   { id: 4, desc: "Hanes Men's Pullover", price: "$200", photo: "https://templates.hibootstrap.com/xton/default/assets/img/products/img3.jpg" },
     // ];
 
-    this.getProduct();
-    this.getCategory();
+    // this.getProduct();
+    // this.getCategory();
 
   }
 
@@ -56,10 +78,28 @@ export class ProductPage extends AbstractPage {
 
   doRefresh(event): void {
     setTimeout(() => {
-      this.getProduct().then(()=> {
-        event.target.complete();
-      });
+      this.getProducts();
+      event.target.complete();
+      // this.getProduct().then(()=> {
+      //   event.target.complete();
+      // });
     }, 1000);
+  }
+
+  getProducts(): void {
+    this.productList = this.store.selectSnapshot(
+      (state) => {
+        return state.ProductState.products;
+      }
+    );
+  }
+
+  getCategories(): void {
+    this.categoryList = this.store.selectSnapshot(
+      (state) => {
+        return state.CategoryState.categories;
+      }
+    );
   }
 
 }

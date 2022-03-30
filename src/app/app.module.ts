@@ -26,6 +26,8 @@ import { AngularFireAuthModule } from '@angular/fire/compat/auth';
 import { AngularFireStorageModule } from '@angular/fire/compat/storage';
 import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
 import { AngularFireDatabaseModule } from '@angular/fire/compat/database';
+import { ProductState } from './ngxs/product/state';
+import { CategoryState } from './ngxs/category/state';
 
 @NgModule({
   declarations: [AppComponent],
@@ -34,7 +36,8 @@ import { AngularFireDatabaseModule } from '@angular/fire/compat/database';
     BrowserModule, 
     IonicModule.forRoot(), 
     AppRoutingModule,
-    NgxsModule.forRoot([SpaceXInfoState]),
+    // NgxsModule.forRoot([SpaceXInfoState, ProductState]),
+    NgxsModule.forRoot([ProductState, CategoryState]),
     NgxsStoragePluginModule.forRoot({
       storage: 1,
     }),
