@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Action, State, StateContext } from '@ngxs/store';
+import { Action, createSelector, Selector, State, StateContext } from '@ngxs/store';
 import { map, tap } from 'rxjs/operators';
 import { HttpService } from 'src/app/services/http/http.service';
 import { ProductService } from 'src/app/services/product/product.service';
@@ -21,32 +21,49 @@ export interface ProductModel {
     status: number;
 }
 
-export interface ProductListModel {
+export interface ProductInfo {
     products: ProductModel[];
+    product: ProductModel;
 }
 
 /**
  * State Class
  */
-@State<ProductListModel>({
+@State<ProductInfo>({
     name: 'ProductState',
     defaults: {
         products: null,
+        product: null,
     },
 })
 @Injectable()
 export class ProductState {
 
-    constructor(private http: HttpService) {}
+    constructor(private http: HttpService) { }
+
+    @Selector()
+    static getAllProduct(state: ProductInfo) {
+        return state.products;
+    }
 
     @Action(Product.GetAll)
-    public getProductList({ setState, getState }: StateContext<ProductListModel>) {
+    public getProductList({ setState, getState }: StateContext<ProductInfo>) {
         return this.http.get(this.http.productApi, null).pipe((tap((res) => {
             const state = getState();
-            console.log('<<<---Data : ' + res['data']);
             setState({
                 ...state,
                 products: res['data'],
+            });
+        })));
+    }
+
+    @Action(Product.GetItem)
+    public getProductItem({ setState, getState }: StateContext<ProductInfo>, { id } : Product.GetItem) {
+        return this.http.get(this.http.productApi + '/' + id, null).pipe((tap((res) => {
+            const state = getState();
+            setState({
+                ...state,
+                product: res['data'],
             });
         })));
     }

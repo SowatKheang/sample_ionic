@@ -1,11 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Platform } from '@ionic/angular';
-import { Observable } from 'rxjs';
-import { map } from 'rxjs/operators';
+import { Store } from '@ngxs/store';
 import { CloudFirestoreService } from 'src/app/services/cloud-firestore/cloud-firestore.service';
-import { HttpService } from 'src/app/services/http/http.service';
 import { AbstractPage } from '../../base/abstract.page';
+import { Product } from '../../../ngxs/product/action';
 
 @Component({
   selector: 'app-product-detail',
@@ -20,9 +19,9 @@ export class ProductDetailPage extends AbstractPage {
 
   constructor(
     private _platform: Platform, 
-    private http: HttpService,
     private route: ActivatedRoute,
-    private cloudFirestoreService: CloudFirestoreService
+    private cloudFirestoreService: CloudFirestoreService,
+    private store: Store,
   ) {
     super(_platform);
   }
@@ -33,7 +32,10 @@ export class ProductDetailPage extends AbstractPage {
     this.route.paramMap.subscribe(data => {
       if (data && data['params']) {
         this.productId = data['params'].id;
-        console.log(this.productId);
+        // Convert string to number add + before it
+        this.store.dispatch(new Product.GetItem(+this.productId)).subscribe((_) => {
+          this.getProduct();
+        });
       }
     });
 
@@ -41,6 +43,15 @@ export class ProductDetailPage extends AbstractPage {
       this.datas = res as string[];
     });
 
+  }
+
+  public getProduct() {
+    this.store.selectSnapshot(
+      (state) => {
+        console.log(state.ProductState.product);
+        return state.ProductState.product;
+      }
+    );
   }
 
 }

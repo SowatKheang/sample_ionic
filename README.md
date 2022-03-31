@@ -209,3 +209,22 @@ async ngOnInit() {
 }
 ```
 
+## Pass Data Between Pages
+Page 1
+```ts
+constructor(public nav: NavController){}
+
+pushToNextScreenWithParams(pageUrl: any, params: any) {
+  this.nav.navigateForward(pageUrl, { state: params });
+}
+```
+
+Page 2
+```ts
+constructor(public router: Router) {
+  if (router.getCurrentNavigation().extras.state) {
+    const pageName = this.router.getCurrentNavigation().extras.state;
+      console.log(pageName) 
+  }
+}
+```

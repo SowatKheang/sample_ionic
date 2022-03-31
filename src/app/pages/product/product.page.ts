@@ -3,9 +3,9 @@ import { Platform } from '@ionic/angular';
 import { Store } from '@ngxs/store';
 import { HttpService } from 'src/app/services/http/http.service';
 import { AbstractPage } from '../base/abstract.page';
-import { ProductState, ProductListModel } from '../../ngxs/product/state';
+import { ProductInfo } from '../../ngxs/product/state';
 import { Product } from '../../ngxs/product/action';
-import { CategoryState, CategoryListModel } from '../../ngxs/category/state';
+import { CategoryListModel } from '../../ngxs/category/state';
 import { Category } from '../../ngxs/category/action';
 
 @Component({
@@ -17,7 +17,7 @@ export class ProductPage extends AbstractPage {
 
   categories = [];
   products = [];
-  productList: ProductListModel;
+  productList: ProductInfo;
   categoryList: CategoryListModel;
 
   constructor(

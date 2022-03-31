@@ -38,7 +38,6 @@ export class CategoryState {
     public getProductList({ setState, getState }: StateContext<CategoryListModel>) {
         return this.http.get(this.http.categoryApi, null).pipe((tap((res) => {
             const state = getState();
-            console.log('<<<---Categories : ' + res['data']);
             setState({
                 ...state,
                 categories: res['data'],
