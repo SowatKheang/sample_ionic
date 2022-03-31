@@ -5,7 +5,7 @@ import { Store } from '@ngxs/store';
 import { CloudFirestoreService } from 'src/app/services/cloud-firestore/cloud-firestore.service';
 import { AbstractPage } from '../../base/abstract.page';
 import { Product } from '../../../ngxs/product/action';
-
+import { ProductModel } from '../../../ngxs/product/state';
 @Component({
   selector: 'app-product-detail',
   templateUrl: './product-detail.page.html',
@@ -14,7 +14,7 @@ import { Product } from '../../../ngxs/product/action';
 export class ProductDetailPage extends AbstractPage {
 
   productId: number;
-
+  product: ProductModel;
   datas: any;
 
   constructor(
@@ -46,9 +46,8 @@ export class ProductDetailPage extends AbstractPage {
   }
 
   public getProduct() {
-    this.store.selectSnapshot(
+    this.product = this.store.selectSnapshot(
       (state) => {
-        console.log(state.ProductState.product);
         return state.ProductState.product;
       }
     );

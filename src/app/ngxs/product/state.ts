@@ -58,14 +58,20 @@ export class ProductState {
     }
 
     @Action(Product.GetItem)
-    public getProductItem({ setState, getState }: StateContext<ProductInfo>, { id } : Product.GetItem) {
-        return this.http.get(this.http.productApi + '/' + id, null).pipe((tap((res) => {
-            const state = getState();
-            setState({
-                ...state,
+    public getProductItem({ patchState, getState }: StateContext<ProductInfo>, { id } : Product.GetItem) {
+        // return this.http.get(this.http.productApi + '/' + id, null).pipe((tap((res) => {
+        //     const state = getState();
+        //     setState({
+        //         ...state,
+        //         product: res['data'],
+        //     });
+        // })));
+        return this.http.get(this.http.productApi + '/' + id, null).pipe(map((res: any) => {
+            patchState({
                 product: res['data'],
             });
-        })));
+        }));
+
     }
 
 }
