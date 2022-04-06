@@ -31,9 +31,9 @@ export class ProductDetailPage extends AbstractPage {
 
     this.route.paramMap.subscribe(data => {
       if (data && data['params']) {
-        this.productId = data['params'].id;
         // Convert string to number add + before it
-        this.store.dispatch(new Product.GetItem(+this.productId)).subscribe((_) => {
+        this.productId = +data['params'].id;
+        this.store.dispatch(new Product.GetItem(this.productId)).subscribe((_) => {
           this.getProduct();
         });
       }

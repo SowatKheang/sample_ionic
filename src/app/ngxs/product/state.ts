@@ -66,6 +66,7 @@ export class ProductState {
         //         product: res['data'],
         //     });
         // })));
+        
         return this.http.get(this.http.productApi + '/' + id, null).pipe(map((res: any) => {
             patchState({
                 product: res['data'],

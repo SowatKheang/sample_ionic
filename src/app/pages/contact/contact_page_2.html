@@ -49,7 +49,7 @@
                                 <div class="form-group">
                                     <label>Name <span>*</span></label>
                                     <input type="text" name="name" id="name" class="form-control" required=""
-                                        data-error="Please enter your name" placeholder="Your name">
+                                        data-error="Please enter your name" placeholder="Your name" [(ngModel)]="contactFormModel.name">
                                     <div class="help-block with-errors"></div>
                                 </div>
                             </div>
@@ -57,7 +57,7 @@
                                 <div class="form-group">
                                     <label>Email <span>*</span></label>
                                     <input type="email" name="email" id="email" class="form-control" required=""
-                                        data-error="Please enter your email" placeholder="Your email address">
+                                        data-error="Please enter your email" placeholder="Your email address" [(ngModel)]="contactFormModel.email">
                                     <div class="help-block with-errors"></div>
                                 </div>
                             </div>
@@ -66,7 +66,7 @@
                                     <label>Phone Number <span>*</span></label>
                                     <input type="text" name="phone_number" id="phone_number" class="form-control"
                                         required="" data-error="Please enter your phone number"
-                                        placeholder="Your phone number">
+                                        placeholder="Your phone number" [(ngModel)]="contactFormModel.phone">
                                     <div class="help-block with-errors"></div>
                                 </div>
                             </div>
@@ -75,13 +75,13 @@
                                     <label>Your Message <span>*</span></label>
                                     <textarea name="message" id="message" cols="30" rows="5" required=""
                                         data-error="Please enter your message" class="form-control"
-                                        placeholder="Write your message..."></textarea>
+                                        placeholder="Write your message..." [(ngModel)]="contactFormModel.message"></textarea>
                                     <div class="help-block with-errors"></div>
                                 </div>
                             </div>
                             <div>
                                 <button type="submit" class="default-btn disabled"
-                                    style="pointer-events: all; cursor: pointer;">Send Message</button>
+                                    style="pointer-events: all; cursor: pointer;" (click)="onSendMessage();">Send Message</button>
                                 <div id="msgSubmit" class="h3 text-center hidden"></div>
                                 <div class="clearfix"></div>
                             </div>
