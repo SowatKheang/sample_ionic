@@ -1,6 +1,5 @@
 import { Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
 import { Platform } from '@ionic/angular';
-import { TranslateService } from '@ngx-translate/core';
 import { AppConst } from 'src/app/consts/app-const';
 import { StorageService } from 'src/app/services/storages/storage-service.service';
 import { TranslateConfigService } from 'src/app/services/translate/translate-config.service';

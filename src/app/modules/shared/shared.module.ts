@@ -6,8 +6,6 @@ import { TranslateModule } from '@ngx-translate/core';
 import { RouterModule } from '@angular/router';
 import { FooterComponent } from 'src/app/components/footer/footer/footer.component';
 
-
-
 @NgModule({
   declarations: [
     UserInfoComponent,
@@ -25,4 +23,8 @@ import { FooterComponent } from 'src/app/components/footer/footer/footer.compone
     FooterComponent,
   ],
 })
+/** 
+ * 
+ * This class is a module that is shared by other modules, such as Component, Translation
+ */
 export class SharedModule { }

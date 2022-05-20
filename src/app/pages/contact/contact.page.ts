@@ -11,7 +11,7 @@ import { AbstractPage } from '../base/abstract.page';
 })
 export class ContactPage extends AbstractPage {
 
-  contactFormModel: ContactFormModel = { name: null, email: null, phone: '', message: '' };
+  contactFormModel: ContactFormModel = { name: '', email: '', phone: '', message: '' };
   
   constructor(private _platform: Platform) {
     super(_platform);

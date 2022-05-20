@@ -3,7 +3,12 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
+
+  baseUrl: "http://192.168.70.145:8080/",
+  baseApiUrl: "http://192.168.70.145:8080/api/",
+
   production: false,
+  
   firebaseConfig: {
     apiKey: "AIzaSyB_mO-bjM8mtzDw1h2aIfwRaacKFyCH7XY",
     authDomain: "ionic-sample-project-22071.firebaseapp.com",

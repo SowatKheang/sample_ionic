@@ -4,6 +4,11 @@ import { Network } from '@capacitor/network';
 @Injectable({
   providedIn: 'root'
 })
+/** 
+ * 
+ * The ConnectivityService class is used to check the network status of the device and to set the
+ * onlineIndicator variable to true or false depending on the network status 
+ */
 export class ConnectivityService {
 
   onlineIndicator: boolean;

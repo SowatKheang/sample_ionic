@@ -7,9 +7,8 @@ import { environment } from 'src/environments/environment';
 })
 export class HttpService {
 
-  // apiURL : string = environment.baseUrl;
+  apiUrl: string = environment.baseApiUrl;
   // apiUrl = 'https://api.spacexdata.com/v3';
-  apiUrl = 'http://192.168.70.197:8080/api/';
 
   readonly spaceXInfoApi : string = "/info";
   readonly userApi: string = 'users'
@@ -18,9 +17,11 @@ export class HttpService {
 
   constructor(private http: HttpClient) { }
 
-
   /**
-   * Get Method
+   * 
+   * @param end_point 
+   * @param params 
+   * @returns 
    */
   public get(end_point: string, params) {
     return this.http.get<[]>(`${this.apiUrl}${end_point}`, {params});
@@ -28,7 +29,9 @@ export class HttpService {
   }
 
   /**
-   * Set Method
+   * 
+   * @param end_point 
+   * @param params 
    */
   public post(end_point: string, params) {
     // return this.http.post<[]>(`${environment.baseUrl}${end_point}`, params);

@@ -14,6 +14,11 @@ import { LoadingController } from '@ionic/angular';
 @Injectable({
   providedIn: 'root'
 })
+/** 
+ * 
+ * The HttpInterceptorService class implements the HttpInterceptor interface 
+ * and intercepts all HTTPrequests and responses 
+ */
 export class HttpInterceptorService implements HttpInterceptor {
 
   loading: any;
@@ -23,7 +28,7 @@ export class HttpInterceptorService implements HttpInterceptor {
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
     const token = "my-token-string-from-server";
 
-    // Authentication by setting header with token value
+    /// Authentication by setting header with token value
     if (token) {
       req = req.clone({ headers: req.headers.set('Authorization', 'Bearer ' + token) });
     }
@@ -86,7 +91,7 @@ export class HttpInterceptorService implements HttpInterceptor {
     this.hideLoading();
   }
 
-  hideLoading() {
+  hideLoading(): void {
     this.loadingController.dismiss().then((res) => {
       console.log('Loading dismissed!', res);
     }).catch((error) => {
