@@ -228,3 +228,9 @@ constructor(public router: Router) {
   }
 }
 ```
+
+## Using NGX DataTable Component
+```
+npm install @swimlane/ngx-datatable --save
+```
+[ngx-datatable styling](https://swimlane.gitbook.io/ngx-datatable/readme/themes)

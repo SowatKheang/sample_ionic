@@ -1,0 +1,92 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>dashboard</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div>
+    <div class="ion-padding">
+      <!-- Theme classes dark, material, bootstrap -->
+      <!-- <ngx-datatable 
+        class="material"
+        [limit]="2" 
+        [rows]="rows" 
+        [rowHeight]="50" 
+        [columns]="columns"
+        [columnMode]="'ColumnMode.flex'" 
+        [sortType]="'multi'"
+        rowHeight="auto"
+        [headerHeight]="50" 
+        [footerHeight]="50">
+  
+        <ngx-datatable-column name="Id" [flexGrow]="1">
+          <ng-template let-value="value" ngx-datatable-cell-template>
+            {{ value }}
+          </ng-template>
+        </ngx-datatable-column>
+  
+        <ngx-datatable-column name="Photo" [flexGrow]="1">
+          <ng-template let-value="value" ngx-datatable-cell-template>
+            <img src="{{ value }}" alt="">
+          </ng-template>
+        </ngx-datatable-column>
+  
+        <ngx-datatable-column name="Description" [flexGrow]="3">
+          <ng-template let-value="value" ngx-datatable-cell-template>
+            {{ value }}
+          </ng-template>
+        </ngx-datatable-column>
+
+        <ngx-datatable-column name="Description En" [flexGrow]="3">
+          <ng-template let-value="value" ngx-datatable-cell-template>
+            {{ value }}
+          </ng-template>
+        </ngx-datatable-column>
+  
+      </ngx-datatable> -->
+      
+      <ngx-datatable
+        class="material"
+        [rows]="rows"
+        [ngClass]="tableStyle"
+        [rowHeight]="'auto'"
+        [headerHeight]="50"
+        [columnMode]="'force'"
+      >
+        <ngx-datatable-column name="Id"></ngx-datatable-column>
+        <ngx-datatable-column name="Photo">
+          <ng-template let-value="value" ngx-datatable-cell-template>
+            <img src="{{ value }}" alt="" style="width: 120px;">
+          </ng-template>
+        </ngx-datatable-column>
+        <ngx-datatable-column name="Description"></ngx-datatable-column>
+        <ngx-datatable-column name="Description En"></ngx-datatable-column>
+      
+        <ngx-datatable-column name="Actions" [sortable]="false">
+          <ng-template let-row="row" let-value="value" ngx-datatable-cell-template>
+            <!-- <ion-button size="small" fill="outline" (click)="open(row)">Details</ion-button>
+            <ion-button size="small" fill="outline" (click)="open(row)">Edit</ion-button> -->
+            
+            <!-- <ion-button id="viewButton" size="small">
+              <ion-icon class="iconButton" slot="icon-only" name="eye-outline"></ion-icon>
+            </ion-button>
+            <ion-button id="editButton" size="small">
+              <ion-icon class="iconButton" slot="icon-only" name="create-outline"></ion-icon>
+            </ion-button>
+            <ion-button id="removeButton" size="small">
+              <ion-icon class="iconButton" slot="icon-only" name="trash-outline"></ion-icon>
+            </ion-button> -->
+
+            <div class="btn-group">
+              <button id="viewButton"><ion-icon class="iconButton" name="eye-outline"></ion-icon></button>
+              <button id="editButton"><ion-icon class="iconButton" name="create-outline"></ion-icon></button>
+              <button id="removeButton"><ion-icon class="iconButton" name="trash-outline"></ion-icon></button>
+            </div>
+
+          </ng-template>
+        </ngx-datatable-column>
+      </ngx-datatable>
+    </div>
+  </div>
+</ion-content>
