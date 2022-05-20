@@ -5,23 +5,17 @@
     <ion-toolbar>
         <ion-buttons slot="start">
             <!-- ion-back-button will show on nested route only defaultHref is defined -->
-            <ion-back-button defaultHref="products"></ion-back-button>
+            <!-- <ion-back-button defaultHref="products"></ion-back-button> -->
+            <ion-button class="backbtn" routerLink="/products" routerDirection="back">
+                <ion-icon *ngIf="_platform.is('ios')" slot="icon-only" name="chevron-back-outline"></ion-icon>
+                <ion-icon *ngIf="!_platform.is('ios')" slot="icon-only" name="arrow-back"></ion-icon>
+            </ion-button>
         </ion-buttons>
         <ion-title>{{ title | translate }}</ion-title>
     </ion-toolbar>
 </ion-header>
 
 <ion-content>
-    <!-- <h3>Product {{ productId }}</h3>
-
-    <h4> {{ product?.description }} </h4>
-
-    <ion-item lines="none" *ngFor="let data of datas">
-        <ion-label>
-            <h2>{{ data.name}}</h2>
-        </ion-label>
-    </ion-item> -->
-
     <section class="section-wrap pb-40 single-product">
         <div class="container-fluid semi-fluid">
             <div class="row">
@@ -92,9 +86,10 @@
                                 </div>
                             </div>
                         </div>
-                    </div> <!-- end gallery thumbs -->
-
-                </div> <!-- end col img slider -->
+                    </div> 
+                    <!-- end gallery thumbs -->
+                </div>
+                <!-- end col img slider -->
 
                 <div class="col-md-6 col-xs-12 product-description-wrap">
                     <ol class="breadcrumb">
@@ -160,7 +155,6 @@
 
                         <a href="#" class="product-add-to-wishlist"><i class="fa fa-heart"></i></a>
                     </div>
-
 
                     <div class="product_meta">
                         <span class="sku">SKU: <a href="#">111763</a></span>
@@ -276,7 +270,6 @@
 
         </div> <!-- end container -->
     </section>
-
 
     <app-footer></app-footer>
 </ion-content>

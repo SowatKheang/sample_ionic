@@ -8,13 +8,17 @@ const routes: Routes = [
   {
     path: '',
     component: ProductPage,
-    children: [
-      {
-        path: 'product/:id',
-        loadChildren: () => import('./product-detail/product-detail.module').then( m => m.ProductDetailPageModule)
-      }
-    ],
-  }
+    // children: [
+    //   {
+    //     path: 'product/:id',
+    //     loadChildren: () => import('./product-detail/product-detail.module').then( m => m.ProductDetailPageModule)
+    //   }
+    // ],
+  },
+  {
+    path: 'product/:id',
+    loadChildren: () => import('./product-detail/product-detail.module').then( m => m.ProductDetailPageModule)
+  },
   
 ];
 
