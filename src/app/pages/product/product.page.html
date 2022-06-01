@@ -29,21 +29,21 @@
                             </ng-container>
                         </ion-list> -->
 
-                        <ul class="category-list-row" *ngFor="let category of categoryList">
+                        <!-- <ul class="category-list-row" *ngFor="let category of categoryList">
                             <li [ngClass]="{'active':  category.description === 'Clothing'}"><a [routerLink]="['/product']"> {{ category.description }} </a></li>
-                            <!-- <li><a [routerLink]="['/product']">Men's</a></li>
-                            <li class="active"><a [routerLink]="['/product']" class="active">Women’s</a></li>
-                            <li><a [routerLink]="['/product']">Clothing</a></li>
-                            <li><a [routerLink]="['/product']">Shoes</a></li>
-                            <li><a [routerLink]="['/product']">Accessories</a></li>
-                            <li><a [routerLink]="['/product']">Uncategorized</a></li> -->
+                        </ul> -->
+                        <ul class="category-list-row">
+                            <li *ngFor="let category of categoryList" 
+                                (click)="setSelectedCategory(category)" 
+                                [ngClass]="{'active': category.id == selectedCategory?.id}"><a [routerLink]="['/products']"> {{ category.description }} </a>
+                            </li>
                         </ul>
                         <!-- End Categoriey -->
         
                         <!-- Size -->
                         <strong><h3 class="title"> {{ 'size' | translate }}</h3></strong>
                         <ul class="size-list-row">
-                            <li><a [routerLink]="['/product']">20</a></li>
+                            <!-- <li><a [routerLink]="['/product']">20</a></li>
                             <li><a [routerLink]="['/product']">24</a></li>
                             <li class="active"><a [routerLink]="['/product']">36</a></li>
                             <li><a [routerLink]="['/product']">30</a></li>
@@ -52,14 +52,18 @@
                             <li><a [routerLink]="['/product']">M</a></li>
                             <li><a [routerLink]="['/product']">L</a></li>
                             <li><a [routerLink]="['/product']">L</a></li>
-                            <li><a [routerLink]="['/product']">XL</a></li>
+                            <li><a [routerLink]="['/product']">XL</a></li> -->
+                            <li *ngFor="let size of sizes" 
+                                (click)="setSelectedSize(size)" 
+                                [ngClass]="{'active': size.desc == selectedSize?.desc}"><a [routerLink]="['/products']"> {{ size.desc }} </a>
+                            </li>
                         </ul>
                         <!-- End Size -->
         
                         <!-- Color -->
                         <strong><h3 class="title"> {{ 'color' | translate }}</h3></strong>
                         <ul class="color-list-row">
-                            <li class="active"><a [routerLink]="['/product']" title="Black" class="color-black"></a></li>
+                            <!-- <li class="active"><a [routerLink]="['/product']" title="Black" class="color-black"></a></li>
                             <li><a [routerLink]="['/product']" title="Red" class="color-red"></a></li>
                             <li><a [routerLink]="['/product']" title="Yellow" class="color-yellow"></a></li>
                             <li><a [routerLink]="['/product']" title="White" class="color-white"></a></li>
@@ -71,19 +75,27 @@
                             <li><a [routerLink]="['/product']" title="Blue Violet" class="color-blueviolet"></a></li>
                             <li><a [routerLink]="['/product']" title="Lime" class="color-lime"></a></li>
                             <li><a [routerLink]="['/product']" title="Plum" class="color-plum"></a></li>
-                            <li><a [routerLink]="['/product']" title="Teal" class="color-teal"></a></li>
+                            <li><a [routerLink]="['/product']" title="Teal" class="color-teal"></a></li> -->
+                            <li *ngFor="let color of colors" 
+                                (click)="setSelectedColor(color)" 
+                                [ngClass]="{'active': color.desc == selectedColor?.desc}"><a [routerLink]="['/products']" title="{{ color.desc }}" class="{{ color.class }}"></a>
+                            </li>
                         </ul>
                         <!-- End Color -->
         
                         <!-- Brands -->
                         <strong><h3 class="title"> {{ 'brands' | translate }}</h3></strong>
                         <ul class="brands-list-row">
-                            <li><a [routerLink]="['/product']">Gucci</a></li>
-                            <li><a [routerLink]="['/product']">Virgil Abloh</a></li>
-                            <li><a [routerLink]="['/product']">Balenciaga</a></li>
-                            <li class="active"><a [routerLink]="['/product']">Moncler</a></li>
-                            <li><a [routerLink]="['/product']">Fendi</a></li>
-                            <li><a [routerLink]="['/product']">Versace</a></li>
+                            <!-- <li><a [routerLink]="['/products']">Gucci</a></li>
+                            <li><a [routerLink]="['/products']">Virgil Abloh</a></li>
+                            <li><a [routerLink]="['/products']">Balenciaga</a></li>
+                            <li class="active"><a [routerLink]="['/products']">Moncler</a></li>
+                            <li><a [routerLink]="['/products']">Fendi</a></li>
+                            <li><a [routerLink]="['/products']">Versace</a></li> -->
+                            <li *ngFor="let brand of brands" 
+                                (click)="setSelectedBrand(brand)" 
+                                [ngClass]="{'active': brand.desc == selectedBrand?.desc}"><a [routerLink]="['/products']"> {{ brand.desc }} </a>
+                            </li>
                         </ul>
                         <!-- End Brands -->
         
