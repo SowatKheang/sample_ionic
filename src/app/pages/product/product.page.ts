@@ -55,42 +55,42 @@ export class ProductPage extends AbstractPage {
     this.setTitle('product');
 
     this.colors = [
-        { desc: 'Black', class: 'color-black'},
-        { desc: 'Red', class: 'color-red'},
-        { desc: 'Yellow', class: 'color-yellow'},
-        { desc: 'White', class: 'color-white'},
-        { desc: 'Blue', class: 'color-blue'},
-        { desc: 'Green', class: 'color-green'},
-        { desc: 'Yellow Green', class: 'color-yellowgreen'},
-        { desc: 'Pink', class: 'color-pink'},
-        { desc: 'Violet', class: 'color-violet'},
-        { desc: 'Blue Violet', class: 'color-blueviolet'},
-        { desc: 'Lime', class: 'color-lime'},
-        { desc: 'Plum', class: 'color-plum'},
-        { desc: 'Teal', class: 'color-teal'},
+        { id: 1, desc: 'Black', class: 'color-black'},
+        { id: 2, desc: 'Red', class: 'color-red'},
+        { id: 3, desc: 'Yellow', class: 'color-yellow'},
+        { id: 4, desc: 'White', class: 'color-white'},
+        { id: 5, desc: 'Blue', class: 'color-blue'},
+        { id: 6, desc: 'Green', class: 'color-green'},
+        { id: 7, desc: 'Yellow Green', class: 'color-yellowgreen'},
+        { id: 8, desc: 'Pink', class: 'color-pink'},
+        { id: 9, desc: 'Violet', class: 'color-violet'},
+        { id: 10, desc: 'Blue Violet', class: 'color-blueviolet'},
+        { id: 11, desc: 'Lime', class: 'color-lime'},
+        { id: 12, desc: 'Plum', class: 'color-plum'},
+        { id: 13, desc: 'Teal', class: 'color-teal'},
     ];
 
     this.brands = [
-        { desc: 'Gucci', descEn: 'Gucci'},
-        { desc: 'Virgil Abloh', descEn: 'Virgil Abloh'},
-        { desc: 'Balenciaga', descEn: 'Balenciaga'},
-        { desc: 'Moncler', descEn: 'Moncler'},
-        { desc: 'Fendi', descEn: 'Fendi'},
-        { desc: 'Versace', descEn: 'Versace'},
+        { id: 1, desc: 'Gucci', descEn: 'Gucci'},
+        { id: 2, desc: 'Virgil Abloh', descEn: 'Virgil Abloh'},
+        { id: 3, desc: 'Balenciaga', descEn: 'Balenciaga'},
+        { id: 4, desc: 'Moncler', descEn: 'Moncler'},
+        { id: 5, desc: 'Fendi', descEn: 'Fendi'},
+        { id: 6, desc: 'Versace', descEn: 'Versace'},
     ];
 
     this.sizes = [
-      { desc: '20', descEn: '20'},
-      { desc: '24', descEn: '24'},
-      { desc: '29', descEn: '29'},
-      { desc: '30', descEn: '30'},
-      { desc: '36', descEn: '36'},
-      { desc: 'XS', descEn: 'XS'},
-      { desc: 'S', descEn: 'S'},
-      { desc: 'M', descEn: 'M'},
-      { desc: 'L', descEn: 'L'},
-      { desc: 'XL', descEn: 'XL'},
-      { desc: '2XL', descEn: '2XL'},
+      { id: 1, desc: '20', descEn: '20'},
+      { id: 2, desc: '24', descEn: '24'},
+      { id: 3, desc: '29', descEn: '29'},
+      { id: 4, desc: '30', descEn: '30'},
+      { id: 5, desc: '36', descEn: '36'},
+      { id: 6, desc: 'XS', descEn: 'XS'},
+      { id: 7, desc: 'S', descEn: 'S'},
+      { id: 8, desc: 'M', descEn: 'M'},
+      { id: 9, desc: 'L', descEn: 'L'},
+      { id: 10, desc: 'XL', descEn: 'XL'},
+      { id: 11, desc: '2XL', descEn: '2XL'},
   ];
 
     // this.categories = [
@@ -114,19 +114,23 @@ export class ProductPage extends AbstractPage {
   }
 
   setSelectedBrand(brand){
-    this.selectedBrand = brand;
+    this.selectedBrand = this.selectedOption(this.selectedBrand, brand);
+    console.log('<-- SELECTED BRAND : ' + (this.selectedBrand ? this.selectedBrand.desc : null));
   }
 
   setSelectedColor(color){
-    this.selectedColor = color;
+    this.selectedColor = this.selectedOption(this.selectedColor, color);
+    console.log('<-- SELECTED COLOR : ' + (this.selectedColor ? this.selectedColor.desc : null));
   }
 
   setSelectedCategory(category){
-    this.selectedCategory = category;
+    this.selectedCategory = this.selectedOption(this.selectedCategory, category);
+    console.log('<-- SELECTED CATEGORY : ' + (this.selectedCategory ? this.selectedCategory.description : null));
   }
 
   setSelectedSize(size){
-    this.selectedSize = size;
+    this.selectedSize = this.selectedOption(this.selectedSize, size);
+    console.log('<-- SELECTED SIZE : ' + (this.selectedSize ? this.selectedSize.desc : null));
   }
 
   async getCategory() {
@@ -167,6 +171,15 @@ export class ProductPage extends AbstractPage {
         return state.CategoryState.categories;
       }
     );
+  }
+
+  private selectedOption(selectOption, option) {
+    if (selectOption && selectOption.id == option.id) {
+      selectOption = null;
+    } else {
+      selectOption = option;
+    }
+    return selectOption;
   }
 
 }
