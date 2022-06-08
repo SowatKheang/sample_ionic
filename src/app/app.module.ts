@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { Injector, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouteReuseStrategy } from '@angular/router';
 
@@ -28,6 +28,7 @@ import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
 import { AngularFireDatabaseModule } from '@angular/fire/compat/database';
 import { ProductState } from './ngxs/product/state';
 import { CategoryState } from './ngxs/category/state';
+import { SelectiveLoadingStrategy } from './services/strategy/selective-loading-strategy';
 
 @NgModule({
   declarations: [AppComponent],
@@ -65,12 +66,23 @@ import { CategoryState } from './ngxs/category/state';
     AngularFireDatabaseModule,
   ],
   providers: [
+    { provide: SelectiveLoadingStrategy },
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
     { provide: HTTP_INTERCEPTORS, useClass: HttpInterceptorService, multi: true }
   ],
   bootstrap: [AppComponent],
 })
-export class AppModule {}
+export class AppModule {
+  /**
+   * Allows for retrieving singletons using `AppModule.injector.get(MyService)`
+   * This is good to prevent injecting the service as constructor parameter.
+   */
+  static injector: Injector;
+  constructor(injector: Injector) {
+    AppModule.injector = injector;
+  }
+
+}
 
 
 export function createTranslateLoader(http: HttpClient) {

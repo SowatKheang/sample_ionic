@@ -1,7 +1,6 @@
 import { PreloadingStrategy, Route } from "@angular/router";
 import { Observable, of, scheduled } from "rxjs";
 
-
 /** 
  * 
  * It stores a reference to each route that has a name, and then 

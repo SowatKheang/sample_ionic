@@ -49,7 +49,6 @@ export class ProductPage extends AbstractPage {
     this.store.dispatch(new Category.GetAll()).subscribe((_) => {
       this.getCategories();
     });
-
   }
 
   onInit(): void {
