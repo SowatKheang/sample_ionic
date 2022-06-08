@@ -19,15 +19,24 @@ const routes: Routes = [
       },
       {
         path: 'about',
-        loadChildren: () => import('../about/about-routing.module').then(m => m.AboutPageRoutingModule)
+        loadChildren: () => import('../about/about-routing.module').then(m => m.AboutPageRoutingModule),
+        data: {
+          name: 'About'
+        }
       },
       {
         path: 'contact',
-        loadChildren: () => import('../contact/contact-routing.module').then(m => m.ContactPageRoutingModule)
+        loadChildren: () => import('../contact/contact-routing.module').then(m => m.ContactPageRoutingModule),
+        data: {
+          name: 'Contact'
+        }
       },
       {
         path: 'products',
-        loadChildren: () => import('../product/product-routing.module').then(m => m.ProductPageRoutingModule)
+        loadChildren: () => import('../product/product-routing.module').then(m => m.ProductPageRoutingModule),
+        data: {
+          name: 'Product'
+        }
       },
     ]
   }
