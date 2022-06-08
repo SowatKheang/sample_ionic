@@ -55,42 +55,42 @@ export class ProductPage extends AbstractPage {
     this.setTitle('product');
 
     this.colors = [
-        { id: 1, desc: 'Black', class: 'color-black'},
-        { id: 2, desc: 'Red', class: 'color-red'},
-        { id: 3, desc: 'Yellow', class: 'color-yellow'},
-        { id: 4, desc: 'White', class: 'color-white'},
-        { id: 5, desc: 'Blue', class: 'color-blue'},
-        { id: 6, desc: 'Green', class: 'color-green'},
-        { id: 7, desc: 'Yellow Green', class: 'color-yellowgreen'},
-        { id: 8, desc: 'Pink', class: 'color-pink'},
-        { id: 9, desc: 'Violet', class: 'color-violet'},
-        { id: 10, desc: 'Blue Violet', class: 'color-blueviolet'},
-        { id: 11, desc: 'Lime', class: 'color-lime'},
-        { id: 12, desc: 'Plum', class: 'color-plum'},
-        { id: 13, desc: 'Teal', class: 'color-teal'},
+        { id: 1, description: 'Black', class: 'color-black'},
+        { id: 2, description: 'Red', class: 'color-red'},
+        { id: 3, description: 'Yellow', class: 'color-yellow'},
+        { id: 4, description: 'White', class: 'color-white'},
+        { id: 5, description: 'Blue', class: 'color-blue'},
+        { id: 6, description: 'Green', class: 'color-green'},
+        { id: 7, description: 'Yellow Green', class: 'color-yellowgreen'},
+        { id: 8, description: 'Pink', class: 'color-pink'},
+        { id: 9, description: 'Violet', class: 'color-violet'},
+        { id: 10, description: 'Blue Violet', class: 'color-blueviolet'},
+        { id: 11, description: 'Lime', class: 'color-lime'},
+        { id: 12, description: 'Plum', class: 'color-plum'},
+        { id: 13, description: 'Teal', class: 'color-teal'},
     ];
 
     this.brands = [
-        { id: 1, desc: 'Gucci', descEn: 'Gucci'},
-        { id: 2, desc: 'Virgil Abloh', descEn: 'Virgil Abloh'},
-        { id: 3, desc: 'Balenciaga', descEn: 'Balenciaga'},
-        { id: 4, desc: 'Moncler', descEn: 'Moncler'},
-        { id: 5, desc: 'Fendi', descEn: 'Fendi'},
-        { id: 6, desc: 'Versace', descEn: 'Versace'},
+        { id: 1, description: 'Gucci', descriptionEn: 'Gucci'},
+        { id: 2, description: 'Virgil Abloh', descriptionEn: 'Virgil Abloh'},
+        { id: 3, description: 'Balenciaga', descriptionEn: 'Balenciaga'},
+        { id: 4, description: 'Moncler', descriptionEn: 'Moncler'},
+        { id: 5, description: 'Fendi', descriptionEn: 'Fendi'},
+        { id: 6, description: 'Versace', descriptionEn: 'Versace'},
     ];
 
     this.sizes = [
-      { id: 1, desc: '20', descEn: '20'},
-      { id: 2, desc: '24', descEn: '24'},
-      { id: 3, desc: '29', descEn: '29'},
-      { id: 4, desc: '30', descEn: '30'},
-      { id: 5, desc: '36', descEn: '36'},
-      { id: 6, desc: 'XS', descEn: 'XS'},
-      { id: 7, desc: 'S', descEn: 'S'},
-      { id: 8, desc: 'M', descEn: 'M'},
-      { id: 9, desc: 'L', descEn: 'L'},
-      { id: 10, desc: 'XL', descEn: 'XL'},
-      { id: 11, desc: '2XL', descEn: '2XL'},
+      { id: 1, description: '20', descriptionEn: '20'},
+      { id: 2, description: '24', descriptionEn: '24'},
+      { id: 3, description: '29', descriptionEn: '29'},
+      { id: 4, description: '30', descriptionEn: '30'},
+      { id: 5, description: '36', descriptionEn: '36'},
+      { id: 6, description: 'XS', descriptionEn: 'XS'},
+      { id: 7, description: 'S', descriptionEn: 'S'},
+      { id: 8, description: 'M', descriptionEn: 'M'},
+      { id: 9, description: 'L', descriptionEn: 'L'},
+      { id: 10, description: 'XL', descriptionEn: 'XL'},
+      { id: 11, description: '2XL', descriptionEn: '2XL'},
   ];
 
     // this.categories = [
@@ -114,25 +114,25 @@ export class ProductPage extends AbstractPage {
   }
 
   setSelectedBrand(brand){
-    this.selectedBrand = this.selectedOption(this.selectedBrand, brand);
-    console.log('<-- SELECTED BRAND : ' + (this.selectedBrand ? this.selectedBrand.desc : null));
+    this.selectedBrand = this.selectedOption('BRAND', this.selectedBrand, brand);
   }
 
-  setSelectedColor(color){
-    this.selectedColor = this.selectedOption(this.selectedColor, color);
-    console.log('<-- SELECTED COLOR : ' + (this.selectedColor ? this.selectedColor.desc : null));
+  setSelectedColor(color) {
+    this.selectedColor = this.selectedOption('COLOR', this.selectedColor, color);
   }
 
-  setSelectedCategory(category){
-    this.selectedCategory = this.selectedOption(this.selectedCategory, category);
-    console.log('<-- SELECTED CATEGORY : ' + (this.selectedCategory ? this.selectedCategory.description : null));
+  setSelectedCategory(category) {
+    this.selectedCategory = this.selectedOption('CATEGORY', this.selectedCategory, category);
   }
 
-  setSelectedSize(size){
-    this.selectedSize = this.selectedOption(this.selectedSize, size);
-    console.log('<-- SELECTED SIZE : ' + (this.selectedSize ? this.selectedSize.desc : null));
+  setSelectedSize(size) {
+    this.selectedSize = this.selectedOption('SIZE', this.selectedSize, size);
   }
 
+  /**
+   * The function is an asynchronous function that calls the get method of the http service and
+   * subscribes to the response
+   */
   async getCategory() {
     await this.http.get(this.http.categoryApi, null).subscribe((res)=> {
       this.categories = res['data'];
@@ -140,6 +140,10 @@ export class ProductPage extends AbstractPage {
     });
   }
 
+  /**
+   * The function is an asynchronous function that calls the get method of the http service and
+   * subscribes to the response
+   */
   async getProduct() {
     await this.http.get(this.http.productApi, null).subscribe((res)=> {
       this.products = res['data'];
@@ -147,6 +151,12 @@ export class ProductPage extends AbstractPage {
     });
   }
 
+  /**
+   * The doRefresh() function is called when the user pulls down on the screen. It calls the
+   * getProducts() function, which is the function that gets the data from the API. It then calls the
+   * event.target.complete() function, which tells the app that the refresh is complete
+   * @param event - The event that triggered the refresh.
+   */
   doRefresh(event): void {
     setTimeout(() => {
       this.getProducts();
@@ -157,6 +167,9 @@ export class ProductPage extends AbstractPage {
     }, 1000);
   }
 
+  /**
+   * The function gets the products from the store and assigns them to the productList variable
+   */
   getProducts(): void {
     this.productList = this.store.selectSnapshot(
       (state) => {
@@ -165,6 +178,9 @@ export class ProductPage extends AbstractPage {
     );
   }
 
+  /**
+   * This function is used to get the list of categories from the store
+   */
   getCategories(): void {
     this.categoryList = this.store.selectSnapshot(
       (state) => {
@@ -173,12 +189,21 @@ export class ProductPage extends AbstractPage {
     );
   }
 
-  private selectedOption(selectOption, option) {
+  /**
+   * If the selected option is the same as the option being selected, then set the selected option to
+   * null. Otherwise, set the selected option to the option being selected
+   * @param module - The module name, which is used to identify the module in the store.
+   * @param selectOption - the current selected option
+   * @param option - the option that was selected
+   * @returns The selected option.
+   */
+  private selectedOption(module, selectOption, option) {
     if (selectOption && selectOption.id == option.id) {
       selectOption = null;
     } else {
       selectOption = option;
     }
+    console.log(`<-- SELECTED ${module} : ` + (selectOption ? selectOption.description : null));
     return selectOption;
   }
 

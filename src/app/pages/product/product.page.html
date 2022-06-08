@@ -55,7 +55,7 @@
                             <li><a [routerLink]="['/product']">XL</a></li> -->
                             <li *ngFor="let size of sizes" 
                                 (click)="setSelectedSize(size)" 
-                                [ngClass]="{'active': size.desc == selectedSize?.desc}"><a [routerLink]="['/products']"> {{ size.desc }} </a>
+                                [ngClass]="{'active': size.id == selectedSize?.id}"><a [routerLink]="['/products']"> {{ size.description }} </a>
                             </li>
                         </ul>
                         <!-- End Size -->
@@ -78,7 +78,7 @@
                             <li><a [routerLink]="['/product']" title="Teal" class="color-teal"></a></li> -->
                             <li *ngFor="let color of colors" 
                                 (click)="setSelectedColor(color)" 
-                                [ngClass]="{'active': color.desc == selectedColor?.desc}"><a [routerLink]="['/products']" title="{{ color.desc }}" class="{{ color.class }}"></a>
+                                [ngClass]="{'active': color.id == selectedColor?.id}"><a [routerLink]="['/products']" title="{{ color.description }}" class="{{ color.class }}"></a>
                             </li>
                         </ul>
                         <!-- End Color -->
@@ -94,7 +94,7 @@
                             <li><a [routerLink]="['/products']">Versace</a></li> -->
                             <li *ngFor="let brand of brands" 
                                 (click)="setSelectedBrand(brand)" 
-                                [ngClass]="{'active': brand.desc == selectedBrand?.desc}"><a [routerLink]="['/products']"> {{ brand.desc }} </a>
+                                [ngClass]="{'active': brand.id == selectedBrand?.id}"><a [routerLink]="['/products']"> {{ brand.description }} </a>
                             </li>
                         </ul>
                         <!-- End Brands -->
