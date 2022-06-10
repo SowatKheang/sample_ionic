@@ -6,6 +6,10 @@
     </ion-buttons>
     <ion-title>{{ title | translate }}</ion-title>
     <ion-buttons slot="end">
+      <ion-button fill="clear" (click)="useLanguage()">
+        <span class="title" *ngIf="isEn">English</span>
+        <span class="title" *ngIf="!isEn">ខ្មែរ</span>
+      </ion-button>
       <ion-button>
         <ion-icon slot="icon-only" name="cart"></ion-icon>
       </ion-button>
@@ -13,6 +17,7 @@
   </ion-toolbar>
 </ion-header>
 <!-- End Mobile Header -->
+
 
 <!-- Web Header -->
 <ion-row class="header ion-align-items-center">

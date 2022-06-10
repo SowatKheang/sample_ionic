@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { Network } from '@capacitor/network';
-
 @Injectable({
   providedIn: 'root'
 })
@@ -13,11 +12,12 @@ export class ConnectivityService {
 
   onlineIndicator: boolean;
 
-  constructor() { }
+  constructor( ) { }
 
   openCheckNetwork() {
-    Network.addListener('networkStatusChange', (status) => {
+    Network.addListener('networkStatusChange', async (status) => {
       console.log('Network status changed', status);
+      alert(status.connected ? 'Connected' : 'Not connected to the internet');
       this.onlineIndicator = status.connected;
     });
   }
@@ -29,3 +29,4 @@ export class ConnectivityService {
   }
 
 }
+

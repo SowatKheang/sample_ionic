@@ -79,7 +79,7 @@ export class HttpInterceptorService implements HttpInterceptor {
     // console.log('Loading dismissed!');
 
     this.loading = this.loadingController.create({
-      message: 'Processing Server Request',
+      message: 'Loading ...',
       duration: 500
     }).then((res) => {
       res.present();

@@ -20,7 +20,7 @@ export class SelectiveLoadingStrategy implements PreloadingStrategy {
         if (route.data && route.data.name) {
             this.routes[route.data.name] = { route, load };
         }
-        return of(false);
+        return of(null);
         // return scheduled(null, false);
     }
 

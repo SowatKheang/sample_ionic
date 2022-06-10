@@ -40,13 +40,13 @@ const routes: Routes = [
   //     name: 'Product List'
   //   }
   // },
-  // {
-  //   path: 'dashboard',
-  //   loadChildren: () => import('./pages/dashboard/dashboard.module').then( m => m.DashboardPageModule),
-  //   data: {
-  //     name: 'Dashboard'
-  //   }
-  // },
+  {
+    path: 'dashboard',
+    loadChildren: () => import('./pages/dashboard/dashboard.module').then( m => m.DashboardPageModule),
+    data: {
+      name: 'Dashboard'
+    }
+  },
 ];
 
 @NgModule({

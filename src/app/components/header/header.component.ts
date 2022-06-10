@@ -1,6 +1,7 @@
 import { Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
 import { Platform } from '@ionic/angular';
 import { AppConst } from 'src/app/consts/app-const';
+import { ConnectivityService } from 'src/app/services/network/connectivity.service';
 import { StorageService } from 'src/app/services/storages/storage-service.service';
 import { TranslateConfigService } from 'src/app/services/translate/translate-config.service';
 
@@ -22,7 +23,8 @@ export class HeaderComponent implements OnInit {
   constructor(
     private platform: Platform,
     private translateConfigService: TranslateConfigService,
-    private storageService: StorageService
+    private storageService: StorageService,
+    private connectivity: ConnectivityService,
   ) { 
     this.isDesktop = this.platform.is('desktop');
   }
@@ -55,3 +57,4 @@ export class HeaderComponent implements OnInit {
   } 
 
 }
+
