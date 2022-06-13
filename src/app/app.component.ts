@@ -107,7 +107,7 @@ export class AppComponent implements OnInit {
 
   async initializeApp() {
     let lang = await this.storageService.get(AppConst.APP_LANGUAGE_KEY);
-    if (lang === null) {
+    if (lang === null || lang === '' || lang === undefined) {
       lang = AppConst.APP_KHMER_LANGUAGE_KEY;
     }
     await this.storageService.set(AppConst.APP_LANGUAGE_KEY, lang);
