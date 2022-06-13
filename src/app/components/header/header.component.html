@@ -7,8 +7,8 @@
     <ion-title>{{ title | translate }}</ion-title>
     <ion-buttons slot="end">
       <ion-button fill="clear" (click)="useLanguage()">
-        <span class="title" *ngIf="isEn">English</span>
-        <span class="title" *ngIf="!isEn">ខ្មែរ</span>
+        <span class="title" *ngIf="isEn"><img src="assets/icon/united-kingdom-flag.jpg" width="30px" ></span>
+        <span class="title" *ngIf="!isEn"><img src="assets/icon/cambodia-flag.jpg" width="30px" ></span>
       </ion-button>
       <ion-button>
         <ion-icon slot="icon-only" name="cart"></ion-icon>
@@ -63,8 +63,8 @@
   </ion-col>
   <ion-col size="2" class="ion-text-right">
     <ion-button fill="clear" color="light" (click)="useLanguage()">
-      <span class="title" *ngIf="isEn">English</span>
-      <span class="title" *ngIf="!isEn">ខ្មែរ</span>
+      <span class="title" *ngIf="isEn"><img src="assets/icon/united-kingdom-flag.jpg" width="30px"></span>
+      <span class="title" *ngIf="!isEn"><img src="assets/icon/cambodia-flag.jpg" width="30px"></span>
     </ion-button>
     <ion-button fill="clear" color="light">
       <ion-icon slot="icon-only" name="cart"></ion-icon>
