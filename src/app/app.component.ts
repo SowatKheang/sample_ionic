@@ -1,7 +1,9 @@
 import { Component, HostListener, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { StatusBar } from '@capacitor/status-bar';
 import { MenuController, Platform } from '@ionic/angular';
 import { AppConst } from './consts/app-const';
+import { AuthService } from './services/auth/auth.service';
 import { ConnectivityService } from './services/network/connectivity.service';
 import { StorageService } from './services/storages/storage-service.service';
 import { TranslateConfigService } from './services/translate/translate-config.service';
@@ -34,6 +36,11 @@ export class AppComponent implements OnInit {
       path: '/'
     },
     {
+      title: 'profile',
+      icon: 'person-circle',
+      path: '/profile'
+    },
+    {
       title: 'product',
       icon: 'list',
       path: '/products'
@@ -63,6 +70,8 @@ export class AppComponent implements OnInit {
     private translateConfigService: TranslateConfigService,
     private storageService: StorageService,
     private connectivity: ConnectivityService,
+    private router: Router,
+    private authService: AuthService,
   ) {
     this.isDesktop = this.platform.is('desktop');
     if (!this.isDesktop) {
@@ -113,5 +122,19 @@ export class AppComponent implements OnInit {
     await this.storageService.set(AppConst.APP_LANGUAGE_KEY, lang);
     this.translateConfigService.setLanguage(lang);
   }
+
+  navigateToProfile(item, i) {
+    if (item.title === 'profile') {
+      this.authService.authState.subscribe(state => {
+        if (state) {
+          this.router.navigate(['profile']);
+        } else {
+          this.router.navigate(['login']);
+        }
+      });
+    }
+    this.selectedIndex = i;
+  }
+
 
 }

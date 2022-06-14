@@ -41,8 +41,8 @@ export class StorageService {
    * 
    * @param key 
    */
-  public remove(key: string) {
-    this.storage.remove(key);
+  public async remove(key: string) {
+    return await this.storage.remove(key);
   }
 
   /**

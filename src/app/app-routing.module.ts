@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
+import { AuthGuardService } from './services/auth/auth-guard.service';
 import { SelectiveLoadingStrategy } from './services/strategy/selective-loading-strategy';
 
 const routes: Routes = [
@@ -43,10 +44,20 @@ const routes: Routes = [
   {
     path: 'dashboard',
     loadChildren: () => import('./pages/dashboard/dashboard.module').then( m => m.DashboardPageModule),
+    canActivate: [AuthGuardService],
     data: {
       name: 'Dashboard'
     }
   },
+  // {
+  //   path: 'login',
+  //   loadChildren: () => import('./pages/login/login.module').then( m => m.LoginPageModule)
+  // },
+  // {
+  //   path: 'profile',
+  //   loadChildren: () => import('./pages/profile/profile.module').then( m => m.ProfilePageModule),
+  //   canActivate: [AuthGuardService],
+  // },
 ];
 
 @NgModule({

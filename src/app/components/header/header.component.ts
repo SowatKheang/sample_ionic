@@ -1,6 +1,8 @@
 import { Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
+import { Router } from '@angular/router';
 import { Platform } from '@ionic/angular';
 import { AppConst } from 'src/app/consts/app-const';
+import { AuthService } from 'src/app/services/auth/auth.service';
 import { ConnectivityService } from 'src/app/services/network/connectivity.service';
 import { StorageService } from 'src/app/services/storages/storage-service.service';
 import { TranslateConfigService } from 'src/app/services/translate/translate-config.service';
@@ -25,6 +27,8 @@ export class HeaderComponent implements OnInit {
     private translateConfigService: TranslateConfigService,
     private storageService: StorageService,
     private connectivity: ConnectivityService,
+    private router: Router,
+    private authService: AuthService,
   ) { 
     this.isDesktop = this.platform.is('desktop');
   }
@@ -54,7 +58,17 @@ export class HeaderComponent implements OnInit {
     this.isEn = !this.isEn;
     this.translateConfigService.setLanguage(this.isEn ? AppConst.APP_ENGLISH_LANGUAGE_KEY : AppConst.APP_KHMER_LANGUAGE_KEY);
     this.storageService.set(AppConst.APP_LANGUAGE_KEY, this.isEn ? AppConst.APP_ENGLISH_LANGUAGE_KEY : AppConst.APP_KHMER_LANGUAGE_KEY);
-  } 
+  }
+
+  navigateToProfile() {
+    this.authService.authState.subscribe(state => {
+      if (state) {
+        this.router.navigate(['profile']);
+      } else {
+        this.router.navigate(['login']);
+      }
+    });
+  }
 
 }
 

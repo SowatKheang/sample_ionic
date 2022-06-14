@@ -10,6 +10,8 @@ import {
 import { Observable, throwError } from 'rxjs';
 import { map, catchError } from 'rxjs/operators';
 import { LoadingController } from '@ionic/angular';
+import { AuthService } from '../auth/auth.service';
+import { StorageService } from '../storages/storage-service.service';
 
 @Injectable({
   providedIn: 'root'
@@ -22,15 +24,15 @@ import { LoadingController } from '@ionic/angular';
 export class HttpInterceptorService implements HttpInterceptor {
 
   loading: any;
+  token: any;
 
-  constructor(public loadingController: LoadingController) { }
+  constructor(public loadingController: LoadingController, private storageService: StorageService) { }
   
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-    const token = "my-token-string-from-server";
-
+    this.getToken();
     /// Authentication by setting header with token value
-    if (token) {
-      req = req.clone({ headers: req.headers.set('Authorization', 'Bearer ' + token) });
+    if (this.token) {
+      req = req.clone({ headers: req.headers.set('Authorization', 'Bearer ' + this.token) });
     }
     // if (token) {
     //   req = req.clone({
@@ -67,6 +69,11 @@ export class HttpInterceptorService implements HttpInterceptor {
         return throwError(error);
       }),
     );
+  }
+
+  async getToken() {
+    this.token = await this.storageService.get('USER_INFO');
+    console.log(this.token)
   }
 
   async showLoading() {

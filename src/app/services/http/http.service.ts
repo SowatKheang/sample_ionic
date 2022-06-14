@@ -34,7 +34,7 @@ export class HttpService {
    * @param params 
    */
   public post(end_point: string, params) {
-    // return this.http.post<[]>(`${environment.baseUrl}${end_point}`, params);
+    return this.http.post<[]>(`${this.apiUrl}${end_point}`, params);
   }
 
 }

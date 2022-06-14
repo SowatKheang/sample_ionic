@@ -38,7 +38,13 @@ import { SelectiveLoadingStrategy } from './services/strategy/selective-loading-
     IonicModule.forRoot(), 
     AppRoutingModule,
     // NgxsModule.forRoot([SpaceXInfoState, ProductState]),
-    NgxsModule.forRoot([ProductState, CategoryState]),
+    NgxsModule.forRoot(
+      [
+        ProductState, 
+        CategoryState
+      ], 
+      { developmentMode: !environment.production }
+    ),
     NgxsStoragePluginModule.forRoot({
       storage: 1,
     }),

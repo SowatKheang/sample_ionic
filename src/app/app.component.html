@@ -16,7 +16,7 @@
       <ion-content>
         <ion-list>
           <ion-menu-toggle auto-hide="false" *ngFor="let item of menu_items; let i = index">
-            <ion-item (click)="selectedIndex = i" routerDirection="root" [routerLink]="[item.path]" lines="none"
+            <ion-item (click)="navigateToProfile(item, i)" routerDirection="root" [routerLink]="[item.path]" lines="none"
               detail="false" [class.selected]="selectedIndex == i">
               <ion-icon slot="start" [ios]="item.icon + '-outline'" [md]="item.icon + '-sharp'"></ion-icon>
               <ion-label>{{ item.title | translate }}</ion-label>

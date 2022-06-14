@@ -1,5 +1,6 @@
 {
     "home": "Home",
+    "profile": "Profile",
     "product": "Product",
     "about": "About",
     "contact": "Contact",
@@ -15,5 +16,6 @@
     "brands": "Brands",
     "price": "Price",
 
+    "login": "Login",
     "logout": "Logout"
 }
