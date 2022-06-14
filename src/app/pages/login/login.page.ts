@@ -16,7 +16,7 @@ export class LoginPage extends AbstractPage {
 
   constructor(
     private _platform: Platform,
-    private fb: FormBuilder,
+    private formBuilder: FormBuilder,
     private authService: AuthService,
     private alertController: AlertController,
     private router: Router,
@@ -27,7 +27,7 @@ export class LoginPage extends AbstractPage {
 
   onInit(): void {
     this.setTitle('login');
-    this.credentials = this.fb.group({
+    this.credentials = this.formBuilder.group({
       email: ['john@gmail.com', [Validators.required, Validators.email]],
       password: ['123', [Validators.required, Validators.minLength(3)]],
     });
